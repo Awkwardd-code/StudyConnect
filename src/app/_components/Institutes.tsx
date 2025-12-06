@@ -1,61 +1,65 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Image from "next/image";
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
+// Malaysian universities with valid image URLs
 const logos = [
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/1/1f/University_of_Regina_Logo.svg",
-    alt: "University of Regina",
-    name: "University of Regina"
+    src: "/logos/malaysia/um.png",
+    alt: "University of Malaya",
+    name: "University of Malaya",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/d/dd/University_of_Wollongong_Australia_logo.svg",
-    alt: "University of Wollongong",
-    name: "University of Wollongong"
+    src: "/logos/malaysia/monash.jpg",
+    alt: "Monash University Malaysia",
+    name: "Monash University Malaysia",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/5/5b/University_of_Waterloo_seal.svg",
-    alt: "University of Waterloo",
-    name: "University of Waterloo"
+    src: "/logos/malaysia/ukm.png",
+    alt: "Universiti Kebangsaan Malaysia",
+    name: "Universiti Kebangsaan Malaysia",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/6/60/Seal_of_the_University_of_Vienna.svg",
-    alt: "University of Vienna",
-    name: "University of Vienna"
+    src: "/logos/malaysia/upm.png",
+    alt: "Universiti Putra Malaysia",
+    name: "Universiti Putra Malaysia",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/2/2e/Unsw_sydney_logo.svg",
-    alt: "UNSW Sydney",
-    name: "UNSW Sydney"
+    src: "/logos/malaysia/usm.webp",
+    alt: "Universiti Sains Malaysia",
+    name: "Universiti Sains Malaysia",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/5/5f/University_of_Otago_logo.svg",
-    alt: "University of Otago",
-    name: "University of Otago"
+    src: "/logos/malaysia/laylors.jpg",
+    alt: "Taylor's University",
+    name: "Taylor's University",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/6/63/University_of_Toronto_coa.svg",
-    alt: "University of Toronto",
-    name: "University of Toronto"
+    src: "/logos/malaysia/utm.webp",
+    alt: "Universiti Teknologi Malaysia",
+    name: "Universiti Teknologi Malaysia",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/4/4a/University_of_Canberra_logo.svg",
-    alt: "University of Canberra",
-    name: "University of Canberra"
+    src: "/logos/malaysia/sunway.jpeg",
+    alt: "Sunway University",
+    name: "Sunway University",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/5/5f/Monash_University_logo.svg",
-    alt: "Monash University",
-    name: "Monash University"
+    src: "/logos/malaysia/nottingham.jpg",
+    alt: "University of Nottingham Malaysia",
+    name: "University of Nottingham Malaysia",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/en/4/4a/McGill_University_CoA.svg",
-    alt: "McGill University",
-    name: "McGill University"
-  }
+    src: "/logos/malaysia/apu.png",
+    alt: "Asia Pacific University",
+    name: "Asia Pacific University",
+  },
 ];
+
+
 
 const Institutes = () => {
   const [start, setStart] = useState(0);
@@ -96,7 +100,7 @@ const Institutes = () => {
   const go = useCallback((direction: "prev" | "next") => {
     if (isAnimating) return;
     setIsAnimating(true);
-    
+
     setStart((prev) => {
       if (direction === "prev") {
         return prev === 0 ? logos.length - 1 : prev - 1;
@@ -118,7 +122,7 @@ const Institutes = () => {
 
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > 50;
     const isRightSwipe = distance < -50;
@@ -129,7 +133,7 @@ const Institutes = () => {
     if (isRightSwipe) {
       go("prev");
     }
-    
+
     setTouchStart(0);
     setTouchEnd(0);
   };
@@ -151,13 +155,18 @@ const Institutes = () => {
         <div className="rounded-2xl sm:rounded-[36px] bg-white px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12 text-center shadow-[0_10px_40px_rgba(11,22,63,0.05)] sm:shadow-[0_25px_70px_rgba(11,22,63,0.08)]">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a0f2c]">
-              Partner Institutions
-            </h2>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-r from-blue-600 to-red-600">
+                <span className="text-xl">🇲🇾</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900">
+                Partner Malaysian Universities
+              </h2>
+            </div>
             <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              We collaborate with top universities worldwide to provide the best opportunities for our students
+              We collaborate with top Malaysian universities to provide world-class education opportunities
             </p>
-            <div className="mt-4 h-1 w-16 sm:w-20 md:w-24 rounded-full bg-linear-to-r from-[#4226ff] to-[#a855f7] mx-auto" />
+            <div className="mt-4 h-1 w-16 sm:w-20 md:w-24 rounded-full bg-linear-to-r from-blue-600 to-red-600 mx-auto" />
           </div>
 
           {/* Logo Slider */}
@@ -165,25 +174,25 @@ const Institutes = () => {
             {/* Navigation Buttons - Hidden on mobile */}
             <button
               type="button"
-              aria-label="Previous institutions"
+              aria-label="Previous universities"
               onClick={() => go("prev")}
               disabled={isAnimating}
-              className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 cursor-pointer rounded-full border border-[#ddd7ff] bg-white p-3 text-[#3a26ff] shadow-lg transition-all hover:bg-[#3a26ff] hover:text-white hover:shadow-xl active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 cursor-pointer rounded-full border border-blue-200 bg-white p-3 text-blue-600 shadow-lg transition-all hover:bg-blue-600 hover:text-white hover:shadow-xl active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
 
             {/* Logo Container */}
-            <div 
+            <div
               className="flex items-center justify-center px-2 sm:px-0"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <div className="flex flex-1 items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 rounded-xl sm:rounded-4xl border border-[#eff2ff] bg-white p-4 sm:p-6 md:p-8 shadow-[0_10px_30px_rgba(11,24,63,0.05)] sm:shadow-[0_15px_50px_rgba(11,24,63,0.08)]">
+              <div className="flex flex-1 items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 rounded-xl sm:rounded-4xl border border-blue-100 bg-white p-4 sm:p-6 md:p-8 shadow-[0_10px_30px_rgba(59,130,246,0.05)] sm:shadow-[0_15px_50px_rgba(59,130,246,0.08)]">
                 {visibleLogos.map((logo, index) => (
-                  <div 
-                    key={`${logo.src}-${index}`} 
+                  <div
+                    key={`${logo.src}-${index}`}
                     className="group relative flex flex-col items-center"
                   >
                     <div className="relative h-12 w-20 sm:h-14 sm:w-24 md:h-16 md:w-28 lg:h-20 lg:w-32 cursor-pointer transition-all duration-300 hover:scale-110 active:scale-105">
@@ -199,9 +208,16 @@ const Institutes = () => {
                     </div>
                     {/* Institution Name Tooltip */}
                     <div className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <span className="text-xs font-medium text-gray-700 bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">
-                        {logo.name}
-                      </span>
+                      <div className="flex items-center gap-1 bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">
+                        <span className="text-xs font-medium text-gray-700">{logo.name}</span>
+                        <span className="inline-flex items-center">
+                          <img
+                            src="https://flagcdn.com/my.svg"
+                            alt="Malaysia Flag"
+                            className="h-5 w-auto mr-1"
+                          />
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -211,10 +227,10 @@ const Institutes = () => {
             {/* Next Button */}
             <button
               type="button"
-              aria-label="Next institutions"
+              aria-label="Next universities"
               onClick={() => go("next")}
               disabled={isAnimating}
-              className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 cursor-pointer rounded-full border border-[#ddd7ff] bg-white p-3 text-[#3a26ff] shadow-lg transition-all hover:bg-[#3a26ff] hover:text-white hover:shadow-xl active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 cursor-pointer rounded-md border border-blue-200 bg-white p-3 text-blue-600 shadow-lg transition-all hover:bg-blue-600 hover:text-white hover:shadow-xl active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -223,19 +239,19 @@ const Institutes = () => {
             <div className="flex sm:hidden justify-center gap-4 mt-6">
               <button
                 type="button"
-                aria-label="Previous institutions"
+                aria-label="Previous universities"
                 onClick={() => go("prev")}
                 disabled={isAnimating}
-                className="cursor-pointer rounded-full border border-[#ddd7ff] p-2.5 text-[#3a26ff] transition-all hover:bg-[#3a26ff] hover:text-white active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="cursor-pointer rounded-full border border-blue-200 p-2.5 text-blue-600 transition-all hover:bg-blue-600 hover:text-white active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
               <button
                 type="button"
-                aria-label="Next institutions"
+                aria-label="Next universities"
                 onClick={() => go("next")}
                 disabled={isAnimating}
-                className="cursor-pointer rounded-full border border-[#ddd7ff] p-2.5 text-[#3a26ff] transition-all hover:bg-[#3a26ff] hover:text-white active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="cursor-pointer rounded-full border border-blue-200 p-2.5 text-blue-600 transition-all hover:bg-blue-600 hover:text-white active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -252,11 +268,10 @@ const Institutes = () => {
                   setStart(idx * visibleCount);
                   setTimeout(() => setIsAnimating(false), 300);
                 }}
-                className={`rounded-full transition-all duration-300 hover:scale-125 cursor-pointer ${
-                  idx === activeDot 
-                    ? "bg-linear-to-r from-[#4226ff] to-[#a855f7] w-6 sm:w-8" 
-                    : "bg-[#d5d9f7] hover:bg-[#a59aff] w-2 sm:w-2.5"
-                } h-2 sm:h-2.5`}
+                className={`rounded-full transition-all duration-300 hover:scale-125 cursor-pointer ${idx === activeDot
+                    ? "bg-linear-to-r from-blue-600 to-red-600 w-6 sm:w-8"
+                    : "bg-blue-200 hover:bg-blue-400 w-2 sm:w-2.5"
+                  } h-2 sm:h-2.5`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -264,31 +279,57 @@ const Institutes = () => {
 
           {/* Call to Action */}
           <div className="mt-8 sm:mt-10 md:mt-12 flex justify-center">
-            <button 
-              className="group relative cursor-pointer inline-flex items-center gap-2 sm:gap-3 rounded-full bg-linear-to-r from-[#4226ff] to-[#a855f7] px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-medium text-white shadow-[0_10px_30px_rgba(66,38,255,0.2)] sm:shadow-[0_20px_45px_rgba(39,27,124,0.3)] transition-all duration-300 hover:shadow-[0_25px_55px_rgba(39,27,124,0.4)] hover:-translate-y-1 active:translate-y-0 active:scale-95 overflow-hidden"
+            <button
+              className="group relative cursor-pointer inline-flex items-center gap-2 sm:gap-3 rounded-md bg-linear-to-r from-blue-600 to-red-600 px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-medium text-white shadow-[0_10px_30px_rgba(59,130,246,0.2)] sm:shadow-[0_20px_45px_rgba(59,130,246,0.3)] transition-all duration-300 hover:shadow-[0_25px_55px_rgba(59,130,246,0.4)] hover:-translate-y-1 active:translate-y-0 active:scale-95 overflow-hidden"
             >
-              <span className="relative z-10">View All Institutions</span>
-              <span className="relative z-10 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#12004d] transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110">
+              <span className="relative z-10">View All Malaysian Universities</span>
+              <span className="relative z-10 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-blue-700 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110">
                 <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </span>
               {/* Hover effect background */}
-              <span className="absolute inset-0 bg-linear-to-r from-[#3a1fcc] to-[#9333ea] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="absolute inset-0 bg-linear-to-r from-blue-700 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
           </div>
 
           {/* Stats */}
           <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto">
-            <div className="text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-blue-50 to-indigo-50">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#4226ff]">50+</p>
+            <div className="text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-blue-50 to-red-50">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">10+</p>
               <p className="text-xs sm:text-sm text-gray-600 mt-1">Partner Universities</p>
             </div>
-            <div className="text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-purple-50 to-pink-50">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#9333ea]">15+</p>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1">Countries</p>
+            <div className="text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-red-50 to-blue-50">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-700">0,000+</p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">Students Placed</p>
             </div>
-            <div className="col-span-2 sm:col-span-1 text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-indigo-50 to-blue-50">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3a26ff]">1000+</p>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1">Successful Admissions</p>
+            <div className="col-span-2 sm:col-span-1 text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-blue-100 to-red-100">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800">98%</p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">Visa Success Rate</p>
+            </div>
+          </div>
+
+          {/* Malaysia Focus */}
+          <div className="mt-8 sm:mt-10 rounded-xl bg-linear-to-r from-blue-50 to-red-50 p-4 sm:p-6 border border-blue-200">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="text-2xl">🇲🇾</span>
+              <h3 className="text-lg sm:text-xl font-semibold text-blue-900">Why Study in Malaysian Universities?</h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base text-gray-700">
+              <div className="flex items-start gap-2">
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
+                <span>Affordable tuition fees with international recognition</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
+                <span>English-medium instruction across all programs</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
+                <span>Multicultural campus environment</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
+                <span>Strong industry connections & job opportunities</span>
+              </div>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -5,19 +6,60 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    title: "Study in Cyprus",
+    title: "University of Malaya",
+    subtitle: "Malaysia's Top University",
     image:
-      "https://images.unsplash.com/photo-1428342319217-5fdaf6d7898e?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80",
+    description: "Ranked #1 in Malaysia • Founded 1905",
   },
   {
-    title: "Study in Australia",
+    title: "Universiti Teknologi Malaysia",
+    subtitle: "Engineering & Technology Excellence",
     image:
-      "https://images.unsplash.com/photo-1506976785307-8732e854ad89?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=1600&q=80",
+    description: "Top Engineering School • Skudai, Johor",
   },
   {
-    title: "Study in Canada",
+    title: "Taylor's University",
+    subtitle: "Best Private University in Malaysia",
     image:
-      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1600&q=80",
+    description: "QS 5-Star Rating • Subang Jaya",
+  },
+  {
+    title: "Sunway University",
+    subtitle: "International Standards Education",
+    image:
+      "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1600&q=80",
+    description: "Twinning Programs • Bandar Sunway",
+  },
+  {
+    title: "Monash University Malaysia",
+    subtitle: "Australian Education in Malaysia",
+    image:
+      "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1600&q=80",
+    description: "World Top 50 University • Sunway City",
+  },
+  {
+    title: "INTI International University",
+    subtitle: "Global Career Opportunities",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80",
+    description: "Laureate Network • Nilai Campus",
+  },
+  {
+    title: "Asia Pacific University",
+    subtitle: "Technology & Innovation Hub",
+    image:
+      "https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?auto=format&fit=crop&w=1600&q=80",
+    description: "Tech-Focused Education • Bukit Jalil",
+  },
+  {
+    title: "Universiti Putra Malaysia",
+    subtitle: "Research & Development Leader",
+    image:
+      "https://images.unsplash.com/photo-1565684018286-b9bc5c4d5a19?auto=format&fit=crop&w=1600&q=80",
+    description: "Agriculture & Life Sciences • Serdang",
   },
 ];
 
@@ -27,7 +69,7 @@ const HomeSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -44,34 +86,48 @@ const HomeSlider = () => {
 
   return (
     <section className="relative">
-      <div className="relative h-[520px] overflow-hidden rounded-[36px] shadow-[0_30px_80px_rgba(22,18,97,0.3)]">
+      <div className="relative h-[460px] overflow-hidden rounded-[36px] shadow-[0_30px_80px_rgba(22,18,97,0.3)]">
         {slides.map((slide, index) => (
           <div
             key={slide.title}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              current === index ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-700 ${current === index ? "opacity-100" : "opacity-0"
+              }`}
             style={{
-              backgroundImage: `linear-gradient(90deg, rgba(5,11,53,0.65), rgba(12,32,96,0.1)), url(${slide.image})`,
+              backgroundImage: `linear-gradient(90deg, rgba(5,11,53,0.75), rgba(12,32,96,0.3)), url(${slide.image})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="flex h-full w-full flex-col items-center justify-center text-center text-white">
-              <p className="text-4xl font-bold tracking-tight sm:text-5xl">
-                {slide.title}
-              </p>
-              <button className="mt-6 rounded-full border border-white/70 px-10 py-3 text-lg font-semibold shadow-[0_15px_40px_rgba(7,9,48,0.45)] transition hover:bg-white/20">
-                Apply Now
-              </button>
+            <div className="flex h-full w-full flex-col items-center justify-center text-center text-white px-4">
+              <div className="max-w-3xl">
+                <p className="mb-1 text-base font-semibold text-blue-200">
+                  {slide.subtitle}
+                </p>
+                <h1 className="mb-3 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                  {slide.title}
+                </h1>
+                <p className="mb-6 text-lg text-gray-200">
+                  {slide.description}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <button className="cursor-pointer rounded-md bg-linear-to-r from-blue-600 to-red-600 px-8 py-3 text-base font-semibold text-white shadow-[0_15px_40px_rgba(7,9,48,0.45)] transition-all hover:scale-105 hover:shadow-[0_20px_50px_rgba(7,9,48,0.6)]">
+                    Apply Now
+                  </button>
+                  <button className="cursor-pointer rounded-md border-2 border-white/70 bg-transparent px-8 py-3 text-base font-semibold text-white shadow-[0_15px_40px_rgba(7,9,48,0.3)] transition-all hover:bg-white/20 hover:scale-105">
+                    Learn More
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         ))}
+
+        {/* Navigation Buttons */}
         <button
           type="button"
           aria-label="Previous slide"
           onClick={() => goToSlide("prev")}
-          className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-3 text-[#2f1c8b] shadow-lg transition hover:bg-white"
+          className="cursor-pointer absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/20 backdrop-blur-sm p-3 text-white shadow-lg transition-all hover:bg-white/40 hover:scale-110"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
@@ -79,10 +135,40 @@ const HomeSlider = () => {
           type="button"
           aria-label="Next slide"
           onClick={() => goToSlide("next")}
-          className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-3 text-[#2f1c8b] shadow-lg transition hover:bg-white"
+          className="cursor-pointer absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/20 backdrop-blur-sm p-3 text-white shadow-lg transition-all hover:bg-white/40 hover:scale-110"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
+
+        {/* Dots Indicator */}
+        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrent(index)}
+              className={`cursor-pointer h-3 w-3 rounded-full transition-all duration-300 ${current === index
+                  ? "bg-white w-8"
+                  : "bg-white/50 hover:bg-white/80"
+                }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Malaysia Flag Badge */}
+        <div className="absolute top-6 right-6 rounded-full bg-linear-to-r from-blue-600 to-red-600 px-4 py-2">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center">
+              <img
+                src="https://flagcdn.com/my.svg"
+                alt="Malaysia Flag"
+                className="h-2 w-auto mr-1"
+              />
+            </span>
+
+            <span className="font-semibold text-white">Study in Malaysia</span>
+          </div>
+        </div>
       </div>
     </section>
   );

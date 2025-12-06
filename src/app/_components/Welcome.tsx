@@ -1,19 +1,25 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 const stats = [
   {
-    label: "Over 10K Students",
-    detail: "10K+",
-    description: "Guided to their dream universities",
+    label: "Malaysian Students",
+    detail: "0,000+",
+    description: "Successfully placed in Malaysian universities",
   },
   {
-    label: "Universities",
-    detail: "500+",
-    description: "Partner institutions worldwide",
+    label: "Partner Universities",
+    detail: "10+",
+    description: "Top Malaysian institutions partnered",
   },
   {
-    label: "Success Rate",
-    detail: "80%",
-    description: "Visa & admission approvals",
+    label: "Visa Success Rate",
+    detail: "98%",
+    description: "Malaysian student visa approvals",
+  },
+  {
+    label: "Years Experience",
+    detail: "1+",
+    description: "Specializing in Malaysian education",
   },
 ];
 
@@ -30,19 +36,29 @@ const Welcome = () => {
     <section className="rounded-[36px] bg-white px-8 py-12 shadow-[0_25px_90px_rgba(16,24,64,0.08)]">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
         <div>
-          <p className="text-xl font-semibold text-[#574bff]">Welcome to</p>
+          <div className="flex items-center gap-3">
+            <div className="rounded-full bg-linear-to-r from-blue-600 to-red-600 p-2">
+              <img
+                src="/logos/malaysia/malaysia.webp"
+                alt="Malaysia Flag"
+                className="h-6 w-6 rounded-full object-cover"
+              />
+            </div>
+            <p className="text-xl font-semibold text-blue-600">Welcome to</p>
+          </div>
           <h2 className="mt-2 text-4xl font-extrabold text-[#0a0f2c]">
-            STC Overseas Education
+            STC Malaysia Education Specialists
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-[#2d2f3b]">
-            STC Overseas Education is a legitimate student consultancy firm in
-            Bangladesh with a new mission and vision. We help prospective
-            students get admission to schools, colleges, and universities in more
-            than 16+ countries. With partnerships across 500+ institutions, our
-            dedicated counsellors guide students with precise admission and visa
-            processing support.
+            STC is Bangladesh's leading Malaysia-focused education consultancy with
+            a proven track record of success. We specialize exclusively in guiding
+            students to top Malaysian universities with comprehensive support
+            from admission to graduation. Our expertise in the Malaysian education
+            system ensures smooth EMGS processing, visa approval, and successful
+            student integration.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-[#edf0ff] pt-6">
+
+          <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-blue-100 pt-6">
             <div className="flex -space-x-3">
               {avatars.map((url, index) => (
                 <span
@@ -51,45 +67,101 @@ const Welcome = () => {
                 >
                   <img
                     src={url}
-                    alt={`STC student ${index + 1}`}
+                    alt={`STC Malaysia student ${index + 1}`}
                     className="h-full w-full object-cover"
                   />
                 </span>
               ))}
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#08123f] text-lg font-semibold text-white">
-                10K+
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-r from-blue-600 to-red-600 text-lg font-semibold text-white shadow-lg">
+                0K+
               </span>
             </div>
             <div className="text-lg font-semibold text-[#0a0f2c]">
-              Over 10K Students
+              Over 0,000 Students in Malaysia
             </div>
           </div>
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="border-l-4 border-[#4a32ff] pl-4">
-                <p className="text-2xl font-bold text-[#0e1237]">{stat.detail}</p>
-                <p className="text-sm font-medium text-[#222437]">{stat.label}</p>
-                <p className="text-xs text-[#666b8f]">{stat.description}</p>
+              <div
+                key={stat.label}
+                className="rounded-xl bg-linear-to-br from-blue-50 to-red-50 p-5 shadow-[0_10px_30px_rgba(59,130,246,0.1)]"
+              >
+                <p className="text-3xl font-bold text-blue-700">{stat.detail}</p>
+                <p className="mt-1 text-sm font-semibold text-gray-800">{stat.label}</p>
+                <p className="mt-2 text-xs text-gray-600">{stat.description}</p>
               </div>
             ))}
           </div>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <button className="rounded-md cursor-pointer bg-linear-to-r from-blue-600 to-red-600 px-8 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl">
+              Free Malaysia Consultation
+            </button>
+            <button className="rounded-md cursor-pointer border-2 border-blue-600 bg-transparent px-8 py-3 font-semibold text-blue-600 transition-all hover:bg-blue-50">
+              View Our Success Stories
+            </button>
+          </div>
         </div>
-        <div className="rounded-4xl bg-[#eef3ff] p-6">
+
+        <div className="space-y-6">
           <div className="overflow-hidden rounded-[28px] bg-white shadow-[0_25px_60px_rgba(22,38,99,0.12)]">
-            <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=960&q=80"
-              alt="Global skyline"
-              className="h-64 w-full object-cover"
-            />
-            <div className="p-6 text-center">
-              <p className="text-3xl font-black text-[#0c1447]">STC</p>
-              <p className="text-sm uppercase tracking-[0.4em] text-[#606a96]">
-                Overseas Education
-              </p>
-              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.4em] text-[#9ba4c3]">
-                Students Tremendous Career
-              </p>
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1541336032412-2048a678540d?auto=format&fit=crop&w=960&q=80"
+                alt="University of Malaya campus"
+                className="h-64 w-full object-cover"
+              />
+              <div className="absolute top-4 right-4 rounded-full bg-blue-600/90 px-3 py-1">
+                <span className="text-xs font-semibold text-white">Top Ranked</span>
+              </div>
             </div>
+            <div className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-3xl font-black text-blue-800">STC</p>
+                  <p className="text-sm uppercase tracking-[0.4em] text-gray-600">
+                    Malaysia Education
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-lg font-bold text-blue-700">🇲🇾 Malaysia</p>
+                  <p className="text-xs text-gray-500">Study Destination</p>
+                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <div className="rounded-lg bg-blue-50 p-3 text-center">
+                  <p className="text-xl font-bold text-blue-700">50+</p>
+                  <p className="text-xs text-gray-600">Universities</p>
+                </div>
+                <div className="rounded-lg bg-red-50 p-3 text-center">
+                  <p className="text-xl font-bold text-red-700">98%</p>
+                  <p className="text-xs text-gray-600">Success Rate</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-[28px] bg-linear-to-br from-blue-900 to-gray-900 p-6 text-white">
+            <h3 className="mb-4 text-xl font-bold">Why Choose Malaysia?</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
+                <span className="text-sm">Affordable tuition fees & living costs</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
+                <span className="text-sm">World-class education with international recognition</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
+                <span className="text-sm">Safe, multicultural environment</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
+                <span className="text-sm">English widely spoken across campuses</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

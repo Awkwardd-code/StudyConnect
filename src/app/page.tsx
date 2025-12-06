@@ -4,7 +4,7 @@ import HomeSlider from "./_components/HomeSlider";
 import Institutes from "./_components/Institutes";
 import Service from "./_components/Service";
 import Stories from "./_components/Stories";
-import Testimonials from "./_components/Testimonials";
+// import Testimonials from "./_components/Testimonials";
 import Welcome from "./_components/Welcome";
 
 const HomePage = () => {
@@ -19,7 +19,7 @@ const HomePage = () => {
         <Destinations />
         <Institutes />
         <Stories />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Contact />
       </div>
     </div>
