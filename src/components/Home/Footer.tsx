@@ -6,9 +6,6 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
   Mail,
   Phone,
   MapPin,
@@ -17,7 +14,7 @@ import {
   Building2,
   UsersRound,
   Globe,
-  BookOpenCheck
+  BookOpenCheck,
 } from "lucide-react";
 
 type SocialLink = {
@@ -75,32 +72,44 @@ const popularCourses = [
 ];
 
 const contactInfo: ContactItem[] = [
-  { icon: Mail, label: "malaysia@studyconnect.com" },
-  { icon: Phone, label: "+60 3-1234 5678 (Malaysia Office)" },
-  { icon: Phone, label: "+60 1-2345 6789 (WhatsApp)" },
-  { icon: Phone, label: "+88 0184 4220 003 (Bangladesh Office)" },
+  { icon: Mail, label: "studyconnect.bd@gmail.com" },
   {
-    icon: MapPin,
-    label: "Kuala Lumpur Office: Level 23, Menara Maxis, Kuala Lumpur City Centre, 50088 Kuala Lumpur, Malaysia"
+    icon: Phone,
+    label: "BD Contact: +880 1677-782567, +880 1767-681478",
+  },
+  {
+    icon: Phone,
+    label: "Malaysia Contact: +6011 2405 4294",
   },
   {
     icon: MapPin,
-    label: "Bangladesh Office: United Benison (5th & 6th floor) House -1, Road -17, Block - D, Banani, Dhaka - 1213, Bangladesh"
+    label:
+      "Malaysia Office: Residensi PV21, No. 06, Jalan Usahawan 2, Off Jalan Genting Klang, 53200 Setapak, Kuala Lumpur, Malaysia",
+  },
+  {
+    icon: MapPin,
+    label:
+      "Bangladesh Office: Beside B.K Primary School, Fulbarigate, Khulna - Joshore Road, Khulna, 9204, Bangladesh",
   },
 ];
 
 const socialLinks: SocialLink[] = [
-  { label: "Facebook", href: "https://facebook.com/studyconnect-malaysia", icon: Facebook },
-  { label: "Instagram", href: "https://instagram.com/studyconnect_malaysia", icon: Instagram },
-  { label: "YouTube", href: "https://youtube.com/@studyconnect-malaysia", icon: Youtube },
-  { label: "LinkedIn", href: "https://linkedin.com/company/studyconnect-malaysia", icon: Linkedin },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1KiHA3tdr3/",
+    icon: Facebook,
+  },
+  // Add more socials later when you have links:
+  // { label: "Instagram", href: "#", icon: Instagram },
+  // { label: "YouTube", href: "#", icon: Youtube },
+  // { label: "LinkedIn", href: "#", icon: Linkedin },
 ];
 
 const malaysiaStats = [
-  { label: "Students Placed", value: "0,000+" },
   { label: "Partner Universities", value: "10+" },
-  { label: "Success Rate", value: "98%" },
-  { label: "Years Experience", value: "1+" },
+  { label: "Years Focused on Malaysia", value: "1+" },
+  { label: "Office Locations", value: "2" },
+  { label: "Primary Markets", value: "BD & MY" },
 ];
 
 const Footer = () => {
@@ -114,38 +123,47 @@ const Footer = () => {
             <div className="space-y-6">
               <div>
                 <div className="inline-flex items-center gap-3 rounded-lg bg-linear-to-r from-blue-600 to-red-600 px-4 py-2">
-
                   {/* Logo Box */}
                   <div className="h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-sm p-1.5">
                     <img
                       src="/logos/malaysia/logo.png"
-                      alt="Study Connect Malaysia Logo"
+                      alt="Study Connect Logo"
                       className="h-full w-full object-contain"
                     />
                   </div>
 
                   {/* Text */}
                   <div>
-                    <h2 className="text-xl font-bold text-white">Study Connect Malaysia</h2>
-                    <img
-                      src="https://flagcdn.com/my.svg"
-                      alt="Malaysia Flag"
-                      className="h-2 w-auto mr-1"
-                    />
-                    <p className="text-xs text-blue-100">
-
-                      Malaysian Education Specialists</p>
+                    <h2 className="text-xl font-bold text-white">
+                      Study Connect
+                    </h2>
+                    <div className="flex items-center gap-1 mt-1">
+                      <img
+                        src="https://flagcdn.com/my.svg"
+                        alt="Malaysia Flag"
+                        className="h-3 w-auto"
+                      />
+                      <span className="text-xs text-blue-100">
+                        Malaysia • Bangladesh
+                      </span>
+                    </div>
+                    <p className="text-xs text-blue-100 mt-1">
+                      Malaysia-focused education guidance for Bangladeshi
+                      students.
+                    </p>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-300">Your Gateway to Malaysia</h3>
-                <h2 className="mt-2 text-3xl font-bold">
-                  Let&apos;s Connect.
-                </h2>
+                <h3 className="text-lg font-semibold text-gray-300">
+                  Your Gateway to Malaysia
+                </h3>
+                <h2 className="mt-2 text-3xl font-bold">Let&apos;s Connect.</h2>
                 <p className="mt-3 text-sm text-gray-400">
-                  Expert guidance for studying in Malaysia&apos;s top universities. 10+ years of experience in Malaysian education.
+                  We provide step-by-step support for Bangladeshi students who
+                  want to study in Malaysia – from choosing a university to
+                  settling in Kuala Lumpur.
                 </p>
               </div>
             </div>
@@ -157,7 +175,9 @@ const Footer = () => {
                   key={index}
                   className="rounded-lg bg-blue-800/30 p-3 text-center backdrop-blur-sm"
                 >
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-2xl font-bold text-white">
+                    {stat.value}
+                  </div>
                   <div className="text-xs text-gray-300">{stat.label}</div>
                 </div>
               ))}
@@ -165,7 +185,7 @@ const Footer = () => {
 
             <div className="space-y-4">
               <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">
-                Follow Our Malaysia Updates
+                Follow Our Updates
               </h4>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
@@ -174,6 +194,8 @@ const Footer = () => {
                     href={social.href}
                     aria-label={social.label}
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-800/50 text-gray-300 transition-all hover:scale-110 hover:bg-blue-600 hover:text-white hover:shadow-lg"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <social.icon className="h-5 w-5" />
                   </Link>
@@ -181,7 +203,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
 
           {/* Column 2: Malaysia Services */}
           <div>
@@ -274,7 +295,10 @@ const Footer = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-400" />
-                  <span>World-class education with international recognition</span>
+                  <span>
+                    Globally recognized degrees and international study
+                    environment
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-400" />
@@ -294,12 +318,23 @@ const Footer = () => {
 
         {/* Malaysian Cities & Quick Links */}
         <div className="text-center">
-          <h3 className="mb-6 text-xl font-bold text-white">Study Locations in Malaysia</h3>
+          <h3 className="mb-6 text-xl font-bold text-white">
+            Study Locations in Malaysia
+          </h3>
           <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
             {[
-              "Kuala Lumpur", "Penang", "Selangor", "Johor Bahru",
-              "Malacca", "Sabah", "Sarawak", "Putrajaya",
-              "Cyberjaya", "Shah Alam", "Ipoh", "Kuching"
+              "Kuala Lumpur",
+              "Penang",
+              "Selangor",
+              "Johor Bahru",
+              "Malacca",
+              "Sabah",
+              "Sarawak",
+              "Putrajaya",
+              "Cyberjaya",
+              "Shah Alam",
+              "Ipoh",
+              "Kuching",
             ].map((city) => (
               <span
                 key={city}
@@ -312,7 +347,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="mb-8">
-            <h3 className="mb-4 text-lg font-semibold text-gray-300">Quick Links</h3>
+            <h3 className="mb-4 text-lg font-semibold text-gray-300">
+              Quick Links
+            </h3>
             <div className="flex flex-wrap items-center justify-center gap-6">
               {[
                 "EMGS Application Process",
@@ -322,7 +359,7 @@ const Footer = () => {
                 "Scholarships in Malaysia",
                 "Accommodation Guide",
                 "International Students FAQ",
-                "Post-Study Work Visa"
+                "Post-Study Work Visa",
               ].map((link) => (
                 <Link
                   key={link}
@@ -338,10 +375,14 @@ const Footer = () => {
           {/* Copyright */}
           <div className="pt-6 border-t border-gray-800">
             <p className="text-sm text-gray-500">
-              © {new Date().getFullYear()} Study Connect Malaysia - Overseas Education Consultants. All rights reserved.
+              © {new Date().getFullYear()} Study Connect. All rights
+              reserved.
             </p>
-            <p className="mt-2 text-xs text-gray-600">
-              Study Connect Malaysia is an authorized agent for Malaysian universities and operates under the regulations of the Ministry of Higher Education Malaysia.
+            <p className="mt-2 text-xs text-gray-600 max-w-2xl mx-auto">
+              We provide independent guidance for studying in Malaysia and always
+              aim to follow official regulations and university policies. Please
+              check directly with universities and official Malaysian government
+              websites for the latest requirements.
             </p>
           </div>
         </div>

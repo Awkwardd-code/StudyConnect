@@ -2,22 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
-
-const WHATSAPP_NUMBER = "+60 1-2345 6789"; // Malaysia WhatsApp number
-const MESSAGE = "Hello Study Connect Malaysia team! I need help with studying in Malaysia. Can you please guide me?";
+import { openWhatsAppChat } from "@/lib/whatsapp";
 
 const WhatsAppWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
-    if (typeof navigator !== "undefined") {
-      const ua = navigator.userAgent || "";
-      setIsMobile(/Android|iPhone|iPad|iPod/i.test(ua));
-    }
-
     // Show widget after a delay for better UX
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -30,11 +22,7 @@ const WhatsAppWidget = () => {
 
   const openChat = () => {
     setHasInteracted(true);
-    const encodedMessage = encodeURIComponent(MESSAGE);
-    const url = isMobile
-      ? `https://wa.me/${WHATSAPP_NUMBER.replace(/\s/g, '')}?text=${encodedMessage}`
-      : `https://web.whatsapp.com/send?phone=${WHATSAPP_NUMBER.replace(/\s/g, '')}&text=${encodedMessage}`;
-    window.open(url, "_blank");
+    openWhatsAppChat();
     setIsOpen(false);
   };
 

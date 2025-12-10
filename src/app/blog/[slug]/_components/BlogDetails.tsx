@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { BlogPost } from "../../data";
-import { CalendarDays, Folder, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Folder, MapPin } from "lucide-react";
+import { openWhatsAppChat } from "@/lib/whatsapp";
 
 const BlogDetails = ({ post }: { post: BlogPost }) => {
+  const handleWhatsAppConsultationRequest = () => {
+    openWhatsAppChat();
+  };
+
   return (
     <section className="bg-linear-to-b from-[#eef2ff] to-[#f9fafb] pb-20">
       {/* Header */}
@@ -95,7 +102,11 @@ const BlogDetails = ({ post }: { post: BlogPost }) => {
               Book your free counselling session now and get personalised guidance for
               admissions, EMGS processing, visas, and scholarships in Malaysian universities.
             </p>
-            <button className="cursor-pointer mt-4 inline-flex items-center gap-2 rounded-full bg-[#4a1cff] px-6 py-2.5 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(74,28,255,0.35)] transition-all duration-300 hover:bg-[#3b15c8] hover:shadow-[0_18px_45px_rgba(74,28,255,0.45)] hover:-translate-y-1">
+            <button
+              type="button"
+              onClick={handleWhatsAppConsultationRequest}
+              className="cursor-pointer mt-4 inline-flex items-center gap-2 rounded-full bg-[#4a1cff] px-6 py-2.5 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(74,28,255,0.35)] transition-all duration-300 hover:bg-[#3b15c8] hover:shadow-[0_18px_45px_rgba(74,28,255,0.45)] hover:-translate-y-1"
+            >
               <span>Book your free consultation now</span>
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#4a1cff]">
                 <ArrowUpRight className="h-3.5 w-3.5" />

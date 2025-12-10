@@ -15,59 +15,59 @@ const MalaysiaFlag = ({ className = "h-4 w-6" }: { className?: string }) => (
 const malaysianDestinations = [
   {
     name: "Kuala Lumpur",
-    university: "University of Malaya",
+    university: "Home to University of Malaya & many top institutions",
     image:
       "https://images.unsplash.com/photo-1502472584811-0a2f2feb8968?auto=format&fit=crop&w=900&q=80",
-    universitiesCount: "20+ Universities",
+    universitiesInfo: "Major public & private universities",
   },
   {
     name: "Selangor",
-    university: "Taylor's University",
+    university: "Popular area for Taylor's, Sunway & other private universities",
     image:
       "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80",
-    universitiesCount: "15+ Universities",
+    universitiesInfo: "Modern campuses & student cities",
   },
   {
     name: "Penang",
-    university: "USM Main Campus",
+    university: "USM main campus & strong research environment",
     image:
       "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=900&q=80",
-    universitiesCount: "8+ Universities",
+    universitiesInfo: "Heritage city with strong academics",
   },
   {
     name: "Johor Bahru",
-    university: "UTM Johor",
+    university: "UTM Johor & growing international campuses",
     image:
       "https://images.unsplash.com/photo-1541336032412-2048a678540d?auto=format&fit=crop&w=900&q=80",
-    universitiesCount: "10+ Universities",
+    universitiesInfo: "Southern education & industry hub",
   },
   {
     name: "Cyberjaya",
-    university: "MMU & Limkokwing",
+    university: "Known for MMU, Limkokwing & tech-focused institutions",
     image:
       "https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=900&q=80",
-    universitiesCount: "12+ Universities",
+    universitiesInfo: "Malaysia’s technology & innovation city",
   },
   {
     name: "Malacca",
-    university: "UTeM & MMU Melaka",
+    university: "UTeM, MMU Melaka & historical surroundings",
     image:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
-    universitiesCount: "6+ Universities",
+    universitiesInfo: "Study in a UNESCO heritage state",
   },
   {
     name: "Sarawak",
-    university: "UNIMAS & Swinburne",
+    university: "UNIMAS, Swinburne Sarawak & international mix",
     image:
       "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=900&q=80",
-    universitiesCount: "7+ Universities",
+    universitiesInfo: "Nature, culture & quality education",
   },
   {
     name: "Sabah",
-    university: "UMS Kota Kinabalu",
+    university: "UMS Kota Kinabalu & beautiful coastal city",
     image:
       "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=80",
-    universitiesCount: "5+ Universities",
+    universitiesInfo: "Ideal for students who love nature",
   },
 ];
 
@@ -83,7 +83,9 @@ const Destinations = () => {
         </p>
       </div>
       <p className="text-lg text-gray-600 flex items-center justify-center gap-2">
-        <span>Explore top education hubs across beautiful Malaysia</span>
+        <span>
+          Explore key education hubs where Study Connect guides Bangladeshi students
+        </span>
         <MalaysiaFlag className="h-5 w-7 rounded-sm object-cover" />
       </p>
 
@@ -104,7 +106,7 @@ const Destinations = () => {
               <div className="absolute inset-0 flex flex-col justify-end p-6 text-left">
                 <div className="mb-2">
                   <span className="inline-block rounded-full bg-blue-600/90 px-3 py-1 text-xs font-semibold text-white">
-                    {destination.universitiesCount}
+                    {destination.universitiesInfo}
                   </span>
                 </div>
                 <h3 className="text-2xl font-bold text-white">
@@ -115,7 +117,7 @@ const Destinations = () => {
                 </p>
                 <div className="mt-4 flex items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <span className="text-sm font-medium text-blue-300">
-                    Explore universities
+                    Talk to us about this city
                   </span>
                   <ArrowUpRight className="h-4 w-4 text-blue-300" />
                 </div>
@@ -141,30 +143,29 @@ const Destinations = () => {
             <div className="mt-2 text-sm text-gray-300">Partner Universities</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold">0,000+</div>
-            <div className="mt-2 text-sm text-gray-300">Students Placed</div>
+            <div className="text-4xl font-bold">{malaysianDestinations.length}+</div>
+            <div className="mt-2 text-sm text-gray-300">Key Study Cities</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold">13</div>
-            <div className="mt-2 text-sm text-gray-300">States Covered</div>
+            <div className="text-4xl font-bold">2</div>
+            <div className="mt-2 text-sm text-gray-300">Offices (BD & MY)</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold">98%</div>
-            <div className="mt-2 text-sm text-gray-300">Visa Success Rate</div>
+            <div className="text-4xl font-bold">2024</div>
+            <div className="mt-2 text-sm text-gray-300">Year Study Connect Started</div>
           </div>
         </div>
       </div>
 
       <div className="mt-10 flex flex-col items-center gap-4">
         <button className="group inline-flex cursor-pointer items-center gap-3 rounded-md bg-linear-to-r from-blue-600 to-red-600 px-8 py-4 text-lg font-semibold text-white shadow-[0_20px_45px_rgba(39,27,124,0.3)] transition-all hover:scale-105 hover:shadow-[0_25px_55px_rgba(39,27,124,0.4)]">
-          View All Malaysian Universities
+          Ask About the Best City for You
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-blue-700 transition-transform group-hover:scale-110">
             <ArrowUpRight className="h-5 w-5" />
           </span>
         </button>
         <p className="text-sm text-gray-500">
-          Complete support for admission, visa, and accommodation in all
-          Malaysian states
+          We help you compare Malaysian cities based on budget, lifestyle, and university options.
         </p>
       </div>
     </section>

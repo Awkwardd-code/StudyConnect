@@ -2,6 +2,7 @@ import Contact from "./_components/Contact";
 import Destinations from "./_components/Destinations";
 import HomeSlider from "./_components/HomeSlider";
 import Institutes from "./_components/Institutes";
+import ProgramLevels from "./_components/ProgramLevels";
 import Service from "./_components/Service";
 import Stories from "./_components/Stories";
 // import Testimonials from "./_components/Testimonials";
@@ -18,6 +19,7 @@ const HomePage = () => {
         <Service />
         <Destinations />
         <Institutes />
+        <ProgramLevels />
         <Stories />
         {/* <Testimonials /> */}
         <Contact />

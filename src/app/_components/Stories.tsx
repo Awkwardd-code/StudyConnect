@@ -133,7 +133,7 @@ const Stories = () => {
         </div>
       </div>
 
-      {/* Statistics */}
+      {/* Support / “Stats” Block – made honest & beginner-friendly */}
       <div className="mt-8 sm:mt-12 rounded-2xl bg-linear-to-r from-blue-900 to-red-900 p-6 sm:p-8 text-white">
         <div className="mb-4 sm:mb-6 text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 sm:px-4 sm:py-2">
@@ -144,25 +144,35 @@ const Stories = () => {
                 className="h-6 w-6 rounded-full object-cover"
               />
             </span>
-            <span className="text-sm sm:text-lg font-semibold">Malaysia Student Statistics</span>
+            <span className="text-sm sm:text-lg font-semibold">
+              How Study Connect Supports Malaysia-Bound Students
+            </span>
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold">0,000+</div>
-            <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-300">Students in Malaysia</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold">1:1</div>
+            <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-300">
+              Personal counselling sessions
+            </div>
           </div>
           <div className="text-center">
             <div className="text-2xl sm:text-3xl md:text-4xl font-bold">10+</div>
-            <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-300">Partner Universities</div>
+            <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-300">
+              Malaysian universities we work with
+            </div>
           </div>
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold">98%</div>
-            <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-300">Visa Success Rate</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold">Step-by-step</div>
+            <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-300">
+              Guidance for visa & EMGS process
+            </div>
           </div>
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold">1+</div>
-            <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-300">Years Experience</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold">BD & MY</div>
+            <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-gray-300">
+              Support from Bangladesh & Malaysia
+            </div>
           </div>
         </div>
       </div>
@@ -170,14 +180,14 @@ const Stories = () => {
       {/* Call to Action */}
       <div className="mt-8 sm:mt-10 flex flex-col items-center gap-3 sm:gap-4">
         <button className="group cursor-pointer inline-flex items-center gap-2 sm:gap-3 rounded-md bg-linear-to-r from-blue-600 to-red-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white shadow-[0_15px_35px_rgba(59,130,246,0.3)] transition-all duration-300 hover:shadow-[0_20px_45px_rgba(59,130,246,0.4)] hover:-translate-y-1 active:translate-y-0">
-          View All Malaysia Stories
+          Start Your Malaysia Success Story
           <span className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white text-blue-700 transition-transform group-hover:translate-x-1 group-hover:scale-110">
             <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </span>
         </button>
         <p className="text-xs sm:text-sm text-gray-500 flex items-center gap-2">
           <span className="text-base sm:text-lg">🇲🇾</span>
-          Join 5,000+ successful students in Malaysian universities
+          We’ll guide you from Bangladesh to your chosen Malaysian university, step by step.
         </p>
       </div>
     </section>
@@ -187,9 +197,7 @@ const Stories = () => {
 // Separate StoryCard component for better organization
 const StoryCard = ({ story }: { story: any }) => {
   return (
-    <article
-      className="group relative h-80 sm:h-96 overflow-hidden rounded-3xl sm:rounded-[34px] shadow-[0_20px_50px_rgba(15,23,66,0.2)] cursor-pointer transition-all duration-300 hover:shadow-[0_25px_60px_rgba(15,23,66,0.3)] hover:-translate-y-1 sm:hover:-translate-y-2"
-    >
+    <article className="group relative h-80 sm:h-96 overflow-hidden rounded-3xl sm:rounded-[34px] shadow-[0_20px_50px_rgba(15,23,66,0.2)] cursor-pointer transition-all duration-300 hover:shadow-[0_25px_60px_rgba(15,23,66,0.3)] hover:-translate-y-1 sm:hover:-translate-y-2">
       <img
         src={story.image}
         alt={story.title}
@@ -230,7 +238,7 @@ const StoryCard = ({ story }: { story: any }) => {
         {/* Hover Details */}
         <div className="mt-3 sm:mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-3 sm:translate-y-4 group-hover:translate-y-0">
           <div className="flex items-center gap-2">
-            <div className="h-1 w-4 sm:w-6 bg-blue-400 rounded-full"></div>
+            <div className="h-1 w-4 sm:w-6 bg-blue-400 rounded-full" />
             <span className="text-xs text-gray-300">Success Story</span>
           </div>
           <button className="mt-2 cursor-pointer sm:mt-3 w-full rounded-full bg-linear-to-r from-blue-600 to-red-600 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-white hover:from-blue-700 hover:to-red-700 transition-all active:scale-95">

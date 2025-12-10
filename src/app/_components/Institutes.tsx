@@ -59,8 +59,6 @@ const logos = [
   },
 ];
 
-
-
 const Institutes = () => {
   const [start, setStart] = useState(0);
   const [visibleCount, setVisibleCount] = useState(5);
@@ -86,8 +84,8 @@ const Institutes = () => {
     };
 
     updateVisibleCount();
-    window.addEventListener('resize', updateVisibleCount);
-    return () => window.removeEventListener('resize', updateVisibleCount);
+    window.addEventListener("resize", updateVisibleCount);
+    return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
 
   const visibleLogos = useMemo(() => {
@@ -97,19 +95,22 @@ const Institutes = () => {
     });
   }, [start, visibleCount]);
 
-  const go = useCallback((direction: "prev" | "next") => {
-    if (isAnimating) return;
-    setIsAnimating(true);
+  const go = useCallback(
+    (direction: "prev" | "next") => {
+      if (isAnimating) return;
+      setIsAnimating(true);
 
-    setStart((prev) => {
-      if (direction === "prev") {
-        return prev === 0 ? logos.length - 1 : prev - 1;
-      }
-      return (prev + 1) % logos.length;
-    });
+      setStart((prev) => {
+        if (direction === "prev") {
+          return prev === 0 ? logos.length - 1 : prev - 1;
+        }
+        return (prev + 1) % logos.length;
+      });
 
-    setTimeout(() => setIsAnimating(false), 300);
-  }, [isAnimating]);
+      setTimeout(() => setIsAnimating(false), 300);
+    },
+    [isAnimating]
+  );
 
   // Touch swipe handling
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -164,7 +165,8 @@ const Institutes = () => {
               </h2>
             </div>
             <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              We collaborate with top Malaysian universities to provide world-class education opportunities
+              Study Connect is building partnerships with top Malaysian universities
+              to help Bangladeshi students access quality, affordable education.
             </p>
             <div className="mt-4 h-1 w-16 sm:w-20 md:w-24 rounded-full bg-linear-to-r from-blue-600 to-red-600 mx-auto" />
           </div>
@@ -209,7 +211,9 @@ const Institutes = () => {
                     {/* Institution Name Tooltip */}
                     <div className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       <div className="flex items-center gap-1 bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">
-                        <span className="text-xs font-medium text-gray-700">{logo.name}</span>
+                        <span className="text-xs font-medium text-gray-700">
+                          {logo.name}
+                        </span>
                         <span className="inline-flex items-center">
                           <img
                             src="https://flagcdn.com/my.svg"
@@ -268,10 +272,11 @@ const Institutes = () => {
                   setStart(idx * visibleCount);
                   setTimeout(() => setIsAnimating(false), 300);
                 }}
-                className={`rounded-full transition-all duration-300 hover:scale-125 cursor-pointer ${idx === activeDot
+                className={`rounded-full transition-all duration-300 hover:scale-125 cursor-pointer ${
+                  idx === activeDot
                     ? "bg-linear-to-r from-blue-600 to-red-600 w-6 sm:w-8"
                     : "bg-blue-200 hover:bg-blue-400 w-2 sm:w-2.5"
-                  } h-2 sm:h-2.5`}
+                } h-2 sm:h-2.5`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -282,7 +287,7 @@ const Institutes = () => {
             <button
               className="group relative cursor-pointer inline-flex items-center gap-2 sm:gap-3 rounded-md bg-linear-to-r from-blue-600 to-red-600 px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-medium text-white shadow-[0_10px_30px_rgba(59,130,246,0.2)] sm:shadow-[0_20px_45px_rgba(59,130,246,0.3)] transition-all duration-300 hover:shadow-[0_25px_55px_rgba(59,130,246,0.4)] hover:-translate-y-1 active:translate-y-0 active:scale-95 overflow-hidden"
             >
-              <span className="relative z-10">View All Malaysian Universities</span>
+              <span className="relative z-10">Ask About These Universities</span>
               <span className="relative z-10 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-blue-700 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110">
                 <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </span>
@@ -294,16 +299,28 @@ const Institutes = () => {
           {/* Stats */}
           <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto">
             <div className="text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-blue-50 to-red-50">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">10+</p>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1">Partner Universities</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
+                10+
+              </p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">
+                Malaysian Partner Universities
+              </p>
             </div>
             <div className="text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-red-50 to-blue-50">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-700">0,000+</p>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1">Students Placed</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-700">
+                2024
+              </p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">
+                Year Study Connect Started
+              </p>
             </div>
             <div className="col-span-2 sm:col-span-1 text-center p-3 sm:p-4 rounded-xl bg-linear-to-br from-blue-100 to-red-100">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800">98%</p>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1">Visa Success Rate</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800">
+                2
+              </p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">
+                Offices (Bangladesh & Malaysia)
+              </p>
             </div>
           </div>
 
@@ -311,24 +328,26 @@ const Institutes = () => {
           <div className="mt-8 sm:mt-10 rounded-xl bg-linear-to-r from-blue-50 to-red-50 p-4 sm:p-6 border border-blue-200">
             <div className="flex items-center justify-center gap-3 mb-3">
               <span className="text-2xl">🇲🇾</span>
-              <h3 className="text-lg sm:text-xl font-semibold text-blue-900">Why Study in Malaysian Universities?</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-blue-900">
+                Why Study in Malaysian Universities?
+              </h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base text-gray-700">
               <div className="flex items-start gap-2">
-                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0" />
                 <span>Affordable tuition fees with international recognition</span>
               </div>
               <div className="flex items-start gap-2">
-                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
-                <span>English-medium instruction across all programs</span>
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0" />
+                <span>English-medium instruction across most programs</span>
               </div>
               <div className="flex items-start gap-2">
-                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
-                <span>Multicultural campus environment</span>
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0" />
+                <span>Multicultural campus and safe environment</span>
               </div>
               <div className="flex items-start gap-2">
-                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
-                <span>Strong industry connections & job opportunities</span>
+                <div className="mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0" />
+                <span>Strong industry links and future career pathways</span>
               </div>
             </div>
           </div>

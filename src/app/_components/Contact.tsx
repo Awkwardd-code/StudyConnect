@@ -1,7 +1,41 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { useState, type ChangeEvent } from "react";
 import { Mail, Phone, MapPin, Clock, ArrowUpRight } from "lucide-react";
+import { buildWhatsAppMessage, openWhatsAppChat } from "@/lib/whatsapp";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    university: "",
+    message: "",
+  });
+
+  type InputEvent = ChangeEvent<
+    HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+  >;
+
+  const handleChange =
+    (field: keyof typeof formData) => (event: InputEvent) => {
+      setFormData((prev) => ({ ...prev, [field]: event.target.value }));
+    };
+
+  const sendContactInquiry = () => {
+    const message = buildWhatsAppMessage(
+      "Hello Study Connect Malaysia team! I would love to book a free consultation.",
+      [
+        { label: "Full Name", value: formData.fullName },
+        { label: "Email", value: formData.email },
+        { label: "Phone", value: formData.phone },
+        { label: "Preferred University", value: formData.university },
+        { label: "Consultation Notes", value: formData.message },
+      ]
+    );
+    openWhatsAppChat(message);
+  };
   return (
     <section
       id="contact"
@@ -26,15 +60,16 @@ const Contact = () => {
                 <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20">
                   <span className="text-base">🇲🇾</span>
                 </span>
-                <span>Malaysia Study Support</span>
+                <span>Study Connect • Malaysia Study Support</span>
               </span>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug">
-                Talk to a Malaysian Education Expert
+                Talk to a Malaysia Education Expert
               </h2>
               <p className="max-w-md text-sm sm:text-base text-blue-100">
                 Get personalized guidance on universities, courses, EMGS, and
-                visa – completely <span className="font-semibold">FREE</span>.
+                visa — completely <span className="font-semibold">FREE</span> for
+                Bangladeshi students planning to study in Malaysia.
               </p>
             </div>
 
@@ -53,17 +88,30 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 border-t border-white/10 mt-4">
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-blue-100" />
-                  <span className="text-xs sm:text-sm text-blue-100">
-                    WhatsApp / Call: +60-XXX-XXXX
+              <div className="flex flex-col gap-2 pt-2 border-t border-white/10 mt-4 text-xs sm:text-sm text-blue-100">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+                  <Phone className="h-4 w-4" />
+                  <span>
+                    WhatsApp / Call (Malaysia):{" "}
+                    <span className="font-semibold">+60 11-2405 4294</span>
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-blue-100" />
-                  <span className="text-xs sm:text-sm text-blue-100">
-                    support@stc-malaysia.com
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+                  <Phone className="h-4 w-4" />
+                  <span>
+                    Bangladesh Office:{" "}
+                    <span className="font-semibold">
+                      +880 1677-782567, +880 1767-681478
+                    </span>
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+                  <Mail className="h-4 w-4" />
+                  <span>
+                    Email:{" "}
+                    <span className="font-semibold">
+                      studyconnect.bd@gmail.com
+                    </span>
                   </span>
                 </div>
               </div>
@@ -82,7 +130,7 @@ const Contact = () => {
                 Free Consultation
               </p>
               <p className="text-xl sm:text-2xl font-semibold text-[#0a0f2c]">
-                Contact us for details
+                Contact Study Connect
               </p>
             </div>
           </div>
@@ -90,16 +138,24 @@ const Contact = () => {
           <p className="mt-2 text-sm sm:text-base text-[#4b4f6a]">
             Book a{" "}
             <span className="font-semibold text-blue-700">FREE 1:1 counselling</span>{" "}
-            session for Malaysia – admission, EMGS, and visa support included.
+            session for Malaysia — admission, EMGS, and visa support included.
           </p>
 
-          <form className="mt-6 space-y-4">
+          <form
+            className="mt-6 space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              sendContactInquiry();
+            }}
+          >
             {/* Name + Email */}
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block text-xs sm:text-sm font-semibold text-[#41445f]">
                 Full Name
                 <input
                   type="text"
+                  value={formData.fullName}
+                  onChange={handleChange("fullName")}
                   placeholder="Enter your name"
                   className="mt-2 w-full rounded-2xl border border-[#d9def5] bg-white px-4 py-3 text-sm sm:text-base text-[#0a0f2c] shadow-sm focus:border-[#4d38ff] focus:ring-2 focus:ring-[#4d38ff]/20 focus:outline-none transition-all"
                   required
@@ -109,6 +165,8 @@ const Contact = () => {
                 Email
                 <input
                   type="email"
+                  value={formData.email}
+                  onChange={handleChange("email")}
                   placeholder="Enter your email"
                   className="mt-2 w-full rounded-2xl border border-[#d9def5] bg-white px-4 py-3 text-sm sm:text-base text-[#0a0f2c] shadow-sm focus:border-[#4d38ff] focus:ring-2 focus:ring-[#4d38ff]/20 focus:outline-none transition-all"
                   required
@@ -122,6 +180,8 @@ const Contact = () => {
                 Phone Number
                 <input
                   type="tel"
+                  value={formData.phone}
+                  onChange={handleChange("phone")}
                   placeholder="With country code (e.g. +880...)"
                   className="mt-2 w-full rounded-2xl border border-[#d9def5] bg-white px-4 py-3 text-sm sm:text-base text-[#0a0f2c] shadow-sm focus:border-[#4d38ff] focus:ring-2 focus:ring-[#4d38ff]/20 focus:outline-none transition-all"
                   required
@@ -130,10 +190,11 @@ const Contact = () => {
 
               <label className="block text-xs cursor-pointer sm:text-sm font-semibold text-[#41445f]">
                 Preferred Universities (Malaysia)
-                <select
-                  className="mt-2 cursor-pointer w-full rounded-2xl border border-[#d9def5] bg-white px-4 py-3 text-sm sm:text-base text-[#0a0f2c] shadow-sm focus:border-[#4d38ff] focus:ring-2 focus:ring-[#4d38ff]/20 focus:outline-none transition-all"
-                  defaultValue=""
-                >
+                  <select
+                    value={formData.university}
+                    onChange={handleChange("university")}
+                    className="mt-2 cursor-pointer w-full rounded-2xl border border-[#d9def5] bg-white px-4 py-3 text-sm sm:text-base text-[#0a0f2c] shadow-sm focus:border-[#4d38ff] focus:ring-2 focus:ring-[#4d38ff]/20 focus:outline-none transition-all"
+                  >
                   <option value="" disabled>
                     Select your preferred university
                   </option>
@@ -153,17 +214,9 @@ const Contact = () => {
                   <option value="UTM">
                     Universiti Teknologi Malaysia (UTM)
                   </option>
-                  <option value="Monash">
-                    Monash University Malaysia
-                  </option>
-                  <option value="Taylors">
-                    Taylor&apos;s University
-                  </option>
-                  <option value="Sunway">
-                    Sunway University
-                  </option>
-               
-                
+                  <option value="Monash">Monash University Malaysia</option>
+                  <option value="Taylors">Taylor&apos;s University</option>
+                  <option value="Sunway">Sunway University</option>
                 </select>
                 <p className="mt-1 text-[11px] sm:text-xs text-[#7b7f99]">
                   You can mention multiple universities in the message below if needed.
@@ -173,15 +226,17 @@ const Contact = () => {
 
             <label className="block text-xs sm:text-sm font-semibold text-[#41445f]">
               What would you like help with?
-              <textarea
-                placeholder="Tell us about your preferred course, intake, budget, and questions..."
-                className="mt-2 w-full min-h-[100px] rounded-2xl border border-[#d9def5] bg-white px-4 py-3 text-sm sm:text-base text-[#0a0f2c] shadow-sm focus:border-[#4d38ff] focus:ring-2 focus:ring-[#4d38ff]/20 focus:outline-none transition-all resize-none"
-              />
+                <textarea
+                  value={formData.message}
+                  onChange={handleChange("message")}
+                  placeholder="Tell us about your preferred course, intake, budget, and questions..."
+                  className="mt-2 w-full min-h-[100px] rounded-2xl border border-[#d9def5] bg-white px-4 py-3 text-sm sm:text-base text-[#0a0f2c] shadow-sm focus:border-[#4d38ff] focus:ring-2 focus:ring-[#4d38ff]/20 focus:outline-none transition-all resize-none"
+                />
             </label>
 
             <div className="mt-4 space-y-3">
               <button
-                type="button"
+                type="submit"
                 className="group inline-flex cursor-pointer w-full items-center justify-center gap-2 rounded-md bg-linear-to-r from-blue-600 to-red-600 py-3.5 text-sm sm:text-lg font-semibold text-white shadow-[0_20px_45px_rgba(39,27,124,0.35)] transition-all hover:shadow-[0_25px_55px_rgba(39,27,124,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]"
               >
                 <span>Book My Free Consultation</span>
@@ -192,7 +247,7 @@ const Contact = () => {
 
               <p className="text-[11px] sm:text-xs text-[#7b7f99] text-center">
                 By submitting, you agree to be contacted via WhatsApp / phone / email
-                regarding study opportunities in Malaysia.
+                regarding study opportunities in Malaysia by Study Connect.
               </p>
             </div>
           </form>

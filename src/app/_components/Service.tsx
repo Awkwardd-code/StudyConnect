@@ -9,33 +9,80 @@ import {
   Stamp,
   PlaneTakeoff,
   Landmark,
-  Languages,
   Home,
   Microscope,
   UsersRound,
   ChevronDown,
   ChevronUp,
-  Award,
   Briefcase,
 } from "lucide-react";
 
 const services = [
-  { title: "Malaysia Education Assessment", icon: MessageSquareMore, description: "Free personalized consultation for Malaysian universities" },
-  { title: "University Admissions", icon: GraduationCap, description: "Admission to 50+ Malaysian universities" },
-  { title: "Offer Letter Processing", icon: FileBadge2, description: "Fast-track acceptance from Malaysian institutions" },
-  { title: "EMGS Application", icon: Stamp, description: "Education Malaysia Global Services processing" },
-  { title: "Student Visa Processing", icon: PlaneTakeoff, description: "Complete visa support for Malaysia" },
-  { title: "Scholarship Assistance", icon: Landmark, description: "Financial aid & Malaysian scholarships" },
-  { title: "English Language Courses", icon: Languages, description: "IELTS/TOEFL preparation for Malaysia" },
-  { title: "Accommodation Support", icon: Home, description: "Student housing arrangements in Malaysia" },
-  { title: "Research Support", icon: Microscope, description: "Ph.D. & research guidance in Malaysia" },
-  { title: "Pre-departure Briefing", icon: UsersRound, description: "Orientation for Malaysian study life" },
-  { title: "Airport Pickup", icon: PlaneTakeoff, description: "Arrival assistance in Malaysia" },
-  { title: "Post-arrival Support", icon: Home, description: "Settlement support in Malaysia" },
-  { title: "Part-time Job Assistance", icon: Briefcase, description: "Work opportunities while studying" },
-  { title: "Bank Documentation", icon: Landmark, description: "Financial proof for Malaysian visa" },
-  { title: "Health Insurance", icon: Award, description: "Medical coverage arrangement" },
-  { title: "Cultural Adaptation", icon: UsersRound, description: "Understanding Malaysian culture" },
+  {
+    title: "Malaysia Education Assessment",
+    icon: MessageSquareMore,
+    description: "Free, friendly consultation based on your results and study goals",
+  },
+  {
+    title: "University Admission Support",
+    icon: GraduationCap,
+    description: "Guided admission support to suitable Malaysian universities and colleges",
+  },
+  {
+    title: "Offer Letter Processing",
+    icon: FileBadge2,
+    description: "Assistance to secure and confirm your university offer in Malaysia",
+  },
+  {
+    title: "EMGS Application Support",
+    icon: Stamp,
+    description: "Guidance for Education Malaysia Global Services (EMGS) procedures",
+  },
+  {
+    title: "Student Visa Processing",
+    icon: PlaneTakeoff,
+    description: "Step-by-step help with Malaysia student visa documentation & process",
+  },
+  {
+    title: "Scholarship Assistance",
+    icon: Landmark,
+    description: "Information and basic guidance on available scholarships in Malaysia",
+  },
+  {
+    title: "Accommodation Support",
+    icon: Home,
+    description: "Help finding student hostels, shared rooms, or apartments in Malaysia",
+  },
+  {
+    title: "Research & Higher Studies Support",
+    icon: Microscope,
+    description: "Initial guidance for Master’s and PhD research pathways in Malaysia",
+  },
+  {
+    title: "Pre-departure Briefing",
+    icon: UsersRound,
+    description: "Practical tips on packing, culture, money, and life in Malaysia",
+  },
+  {
+    title: "Airport Pickup Coordination",
+    icon: PlaneTakeoff,
+    description: "Support to arrange airport pickup and first arrival coordination",
+  },
+  {
+    title: "Post-arrival Support",
+    icon: Home,
+    description: "Assistance with settling in: SIM, basic guidance, and local orientation",
+  },
+  {
+    title: "Part-time Job Awareness",
+    icon: Briefcase,
+    description: "Basic information about part-time work rules for international students",
+  },
+  {
+    title: "Cultural Adaptation Support",
+    icon: UsersRound,
+    description: "Friendly guidance to help you adjust to Malaysian culture and student life",
+  },
 ];
 
 const Service = () => {
@@ -56,12 +103,11 @@ const Service = () => {
               alt="Malaysia Flag"
               className="h-6 w-6 rounded-full object-cover"
             />
-
           </div>
           <p className="text-3xl font-bold text-blue-900">Our Malaysia Services</p>
         </div>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Comprehensive support for your study journey in Malaysia
+          Transparent, beginner-friendly support for your full study journey in Malaysia
         </p>
         <div className="mt-4 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-red-600 mx-auto" />
       </div>
@@ -134,7 +180,7 @@ const Service = () => {
         <div className="mt-6 text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2">
             <span className="text-sm font-medium text-blue-700">
-              {services.length} Comprehensive Services
+              {services.length} Malaysia-focused Services
             </span>
             <span className="text-blue-700">🇲🇾</span>
           </div>
@@ -146,15 +192,15 @@ const Service = () => {
         <div className="grid grid-cols-3 gap-6 max-w-2xl">
           <div className="text-center p-4 rounded-xl bg-linear-to-br from-blue-50 to-red-50">
             <p className="text-2xl font-bold text-blue-700">End-to-End</p>
-            <p className="text-sm text-gray-600 mt-1">Complete Support</p>
+            <p className="text-sm text-gray-600 mt-1">From admission to post-arrival</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-linear-to-br from-red-50 to-blue-50">
-            <p className="text-2xl font-bold text-red-700">1+ Years</p>
-            <p className="text-sm text-gray-600 mt-1">Malaysia Experience</p>
+            <p className="text-2xl font-bold text-red-700">Founded 2024</p>
+            <p className="text-sm text-gray-600 mt-1">New but fully dedicated team</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-linear-to-br from-blue-100 to-red-100">
-            <p className="text-2xl font-bold text-blue-800">98% Success</p>
-            <p className="text-sm text-gray-600 mt-1">Visa Approval Rate</p>
+            <p className="text-2xl font-bold text-blue-800">Student-First</p>
+            <p className="text-sm text-gray-600 mt-1">Honest & transparent guidance</p>
           </div>
         </div>
       </div>

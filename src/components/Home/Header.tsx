@@ -16,7 +16,6 @@ import {
   HandCoins,
   Image as ImageIcon,
   Info,
-  Landmark,
   MessageCircleQuestion,
   MessageSquareText,
   Plane,
@@ -80,11 +79,9 @@ const serviceItems: ServiceItem[] = [
   { label: "University Admissions", icon: GraduationCap, description: "Top Malaysian universities", href: "/services" },
   { label: "Free Assessment", icon: MessageSquareText, description: "Personalized consultation", href: "/services" },
   { label: "Offer Letter Processing", icon: Stamp, description: "Fast-track acceptance", href: "/services" },
-  { label: "Student Visa", icon: FileText, description: "Visa application & guidance", href: "/services" },
+  { label: "Student Visa", icon: FileText, description: "Visa application & guidance", href: "/malaysia-student-visa" },
   { label: "EMGS Processing", icon: Plane, description: "Education Malaysia support", href: "/services" },
-  { label: "English Courses", icon: BookOpenCheck, description: "IELTS/TOEFL preparation", href: "/services" },
   { label: "Scholarship Support", icon: HandCoins, description: "Malaysian scholarships", href: "/services" },
-  { label: "Bank & Finances", icon: Landmark, description: "Financial documentation", href: "/services" },
   { label: "Accommodation", icon: Building2, description: "Student housing in Malaysia", href: "/services" },
   { label: "Airport Pickup", icon: Plane, description: "Arrival assistance", href: "/services" },
   { label: "Pre-departure Briefing", icon: MessageCircleQuestion, description: "Orientation & guidance", href: "/services" },
@@ -97,7 +94,7 @@ const malaysiaItems: MalaysiaItem[] = [
   { label: "Top Universities", icon: GraduationCap, description: "Rankings & programs", href: "/destinations" },
   { label: "Cost of Studying", icon: HandCoins, description: "Tuition & living expenses", href: "/destinations" },
   { label: "Student Life", icon: UsersRound, description: "Campus & culture", href: "/destinations" },
-  { label: "Visa Requirements", icon: FileText, description: "Document checklist", href: "/destinations" },
+  { label: "Visa Requirements", icon: FileText, description: "Document checklist", href: "/malaysia-student-visa" },
   { label: "Work Opportunities", icon: Briefcase, description: "Part-time & post-study", href: "/destinations" },
   { label: "Popular Courses", icon: BookOpenCheck, description: "In-demand programs", href: "/destinations" },
   { label: "Accommodation Guide", icon: Building2, description: "Living options", href: "/destinations" },
@@ -108,7 +105,7 @@ const malaysiaItems: MalaysiaItem[] = [
 
 const aboutItems: AboutItem[] = [
   { label: "About Study Connect Malaysia", icon: Info, description: "Our mission & vision", href: "/about" },
-  { label: "Expert Team", icon: UsersRound, description: "Malaysia education specialists", href: "/about" },
+  { label: "Expert Team", icon: UsersRound, description: "Malaysia education specialists", href: "/about/team" },
   { label: "Success Gallery", icon: ImageIcon, description: "Student achievements", href: "/about" },
   { label: "Success Stories", icon: Trophy, description: "Graduate testimonials", href: "/about" },
   { label: "Events & Webinars", icon: CalendarDays, description: "Study Malaysia sessions", href: "/about" },
@@ -183,8 +180,6 @@ const BrandGlyph = ({ size = "lg" }: { size?: "sm" | "lg" }) => {
         <Sparkles className="h-3 w-3 text-yellow-400" fill="currentColor" />
       </div>
     </div>
-
-
   );
 };
 
@@ -193,7 +188,10 @@ const BrandLockup = () => (
     <BrandGlyph />
     <div className="leading-tight transition-transform group-hover:scale-[1.02]">
       <div className="flex items-baseline gap-2">
-        <p className="text-2xl font-bold tracking-tight text-gray-900">STC</p>
+        {/* 🔁 STC → Study Connect */}
+        <p className="text-2xl font-bold tracking-tight text-gray-900">
+          Study Connect
+        </p>
         <span className="rounded-full bg-linear-to-r from-blue-500 to-red-500 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
           Malaysia
         </span>
@@ -216,8 +214,12 @@ const renderDropdown = (key: DropdownKey) => {
               <GraduationCap className="h-4 w-4 text-white" />
             </div>
             <div>
-              <h3 className="text-base font-semibold text-gray-900">Our Malaysia Services</h3>
-              <p className="text-xs text-gray-500">Complete support for studying in Malaysia</p>
+              <h3 className="text-base font-semibold text-gray-900">
+                Our Malaysia Services
+              </h3>
+              <p className="text-xs text-gray-500">
+                Complete support for studying in Malaysia
+              </p>
             </div>
           </div>
           <div className="max-h-80 overflow-y-auto pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -236,7 +238,9 @@ const renderDropdown = (key: DropdownKey) => {
                       <p className="text-sm font-semibold text-gray-900 group-hover:text-blue-700">
                         {item.label}
                       </p>
-                      <p className="mt-0.5 text-xs text-gray-500">{item.description}</p>
+                      <p className="mt-0.5 text-xs text-gray-500">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </Link>
@@ -253,8 +257,12 @@ const renderDropdown = (key: DropdownKey) => {
               <Globe className="h-5 w-5 text-white" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Study in Malaysia 🇲🇾</h3>
-              <p className="text-sm text-gray-500">Everything about Malaysian education</p>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Study in Malaysia 🇲🇾
+              </h3>
+              <p className="text-sm text-gray-500">
+                Everything about Malaysian education
+              </p>
             </div>
           </div>
           <div className="max-h-80 overflow-y-auto pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -272,7 +280,9 @@ const renderDropdown = (key: DropdownKey) => {
                     <p className="font-medium text-gray-900 group-hover:text-blue-700">
                       {item.label}
                     </p>
-                    <p className="text-sm text-gray-500">{item.description}</p>
+                    <p className="text-sm text-gray-500">
+                      {item.description}
+                    </p>
                   </div>
                 </Link>
               ))}
@@ -290,8 +300,12 @@ const renderDropdown = (key: DropdownKey) => {
                   <Info className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-gray-900">About Study Connect Malaysia</h3>
-                  <p className="text-xs text-gray-500">Your trusted Malaysia education partner</p>
+                  <h3 className="text-base font-semibold text-gray-900">
+                    About Study Connect Malaysia
+                  </h3>
+                  <p className="text-xs text-gray-500">
+                    Your trusted Malaysia education partner
+                  </p>
                 </div>
               </div>
               <div className="space-y-1">
@@ -308,7 +322,9 @@ const renderDropdown = (key: DropdownKey) => {
                       <p className="text-sm font-semibold text-gray-900 group-hover:text-blue-700 leading-tight">
                         {item.label}
                       </p>
-                      <p className="text-xs text-gray-500 leading-tight">{item.description}</p>
+                      <p className="text-xs text-gray-500 leading-tight">
+                        {item.description}
+                      </p>
                     </div>
                   </Link>
                 ))}
@@ -318,7 +334,9 @@ const renderDropdown = (key: DropdownKey) => {
               <div className="relative z-10">
                 <div className="mb-4 text-center">
                   <BrandGlyph size="sm" />
-                  <p className="mt-2 text-lg font-bold text-white">Study Malaysia Experts</p>
+                  <p className="mt-2 text-lg font-bold text-white">
+                    Study Malaysia Experts
+                  </p>
                   <p className="mt-1 text-xs text-gray-300">
                     1+ years experience in Malaysian education
                   </p>
@@ -373,7 +391,9 @@ const MobileSidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                   <item.icon className="h-4 w-4" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">{item.label}</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    {item.label}
+                  </p>
                   <p className="text-xs text-gray-500">{item.description}</p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-gray-400" />
@@ -395,7 +415,9 @@ const MobileSidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                   <item.icon className="h-4 w-4" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">{item.label}</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    {item.label}
+                  </p>
                   <p className="text-xs text-gray-500">{item.description}</p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-gray-400" />
@@ -417,7 +439,9 @@ const MobileSidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                   <item.icon className="h-4 w-4" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">{item.label}</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    {item.label}
+                  </p>
                   <p className="text-xs text-gray-500">{item.description}</p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-gray-400" />
@@ -434,15 +458,17 @@ const MobileSidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-300 ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
+        className={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
         onClick={onClose}
       />
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex h-full flex-col">
           {/* Header */}
@@ -474,26 +500,31 @@ const MobileSidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
                         </Link>
                         <button
                           onClick={() =>
-                            setOpenDropdown(openDropdown === item.dropdown ? null : item.dropdown!)
+                            setOpenDropdown(
+                              openDropdown === item.dropdown ? null : item.dropdown!
+                            )
                           }
                           className="rounded-md p-1 text-gray-600 transition-transform"
                           aria-label={`Toggle ${item.label} menu`}
                         >
                           <ChevronDown
-                            className={`h-4 w-4 transition-transform ${openDropdown === item.dropdown ? "rotate-180" : ""
-                              }`}
+                            className={`h-4 w-4 transition-transform ${
+                              openDropdown === item.dropdown ? "rotate-180" : ""
+                            }`}
                           />
                         </button>
                       </div>
-                      {openDropdown === item.dropdown && renderMobileDropdown(item.dropdown)}
+                      {openDropdown === item.dropdown &&
+                        renderMobileDropdown(item.dropdown)}
                     </div>
                   ) : (
                     <Link
                       href={item.href ?? "#"}
-                      className={`flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium transition-all ${item.highlight
-                        ? "bg-blue-50 text-blue-700 hover:bg-blue-100"
-                        : "text-gray-900 hover:bg-gray-50"
-                        }`}
+                      className={`flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium transition-all ${
+                        item.highlight
+                          ? "bg-blue-50 text-blue-700 hover:bg-blue-100"
+                          : "text-gray-900 hover:bg-gray-50"
+                      }`}
                       onClick={onClose}
                     >
                       {item.label}
@@ -506,7 +537,9 @@ const MobileSidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 
             {/* Contact Info */}
             <div className="mt-8 space-y-4 rounded-xl bg-linear-to-br from-gray-50 to-gray-100 p-4">
-              <h3 className="text-sm font-semibold text-gray-900">Contact Info (Malaysia)</h3>
+              <h3 className="text-sm font-semibold text-gray-900">
+                Contact Info (Malaysia)
+              </h3>
               {contactInfo.map((info) => (
                 <Link
                   key={info.label}
@@ -524,7 +557,9 @@ const MobileSidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 
             {/* Social Links */}
             <div className="mt-8">
-              <h3 className="mb-4 text-sm font-semibold text-gray-900">Follow Us</h3>
+              <h3 className="mb-4 text-sm font-semibold text-gray-900">
+                Follow Us
+              </h3>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
                   <Link
@@ -640,15 +675,19 @@ const Header = () => {
                         }}
                       >
                         <ChevronDown
-                          className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.dropdown
-                            ? "rotate-180 text-blue-600"
-                            : "text-gray-400 group-hover:text-gray-600"
-                            }`}
+                          className={`h-4 w-4 transition-transform duration-200 ${
+                            activeDropdown === item.dropdown
+                              ? "rotate-180 text-blue-600"
+                              : "text-gray-400 group-hover:text-gray-600"
+                          }`}
                         />
                       </button>
                     </div>
                     {activeDropdown === item.dropdown && (
-                      <div onMouseEnter={clearCloseTimeout} onMouseLeave={scheduleClose}>
+                      <div
+                        onMouseEnter={clearCloseTimeout}
+                        onMouseLeave={scheduleClose}
+                      >
                         {renderDropdown(item.dropdown)}
                       </div>
                     )}
@@ -657,10 +696,11 @@ const Header = () => {
                   <Link
                     key={item.label}
                     href={item.href ?? "#"}
-                    className={`rounded-full px-4 py-2.5 text-sm font-medium transition-all ${item.highlight
-                      ? "text-blue-600 hover:text-blue-700 hover:bg-blue-50"
-                      : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                      }`}
+                    className={`rounded-full px-4 py-2.5 text-sm font-medium transition-all ${
+                      item.highlight
+                        ? "text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                        : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                    }`}
                     onMouseEnter={closeDropdown}
                   >
                     {item.label}
@@ -693,7 +733,10 @@ const Header = () => {
       </header>
 
       {/* Mobile Sidebar */}
-      <MobileSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <MobileSidebar
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
     </>
   );
 };

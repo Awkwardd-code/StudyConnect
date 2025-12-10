@@ -1,9 +1,16 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
-import { ArrowRight, CheckCircle, Users, Award, GraduationCap } from "lucide-react";
+
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import {
+  ArrowRight,
+  CheckCircle,
+  Users,
+  Award,
+  GraduationCap,
+} from "lucide-react";
+import { buildWhatsAppMessage, openWhatsAppChat } from "@/lib/whatsapp";
 
 const CounsellingSection = () => {
   const [formData, setFormData] = useState({
@@ -13,25 +20,38 @@ const CounsellingSection = () => {
     education: "",
     program: "",
     university: "",
-    ielts: ""
+    ielts: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 2000);
+    const message = buildWhatsAppMessage(
+      "Hello Study Connect Malaysia team! I would like to book a Malaysia consultation.",
+      [
+        { label: "Full Name", value: formData.name },
+        { label: "Email", value: formData.email },
+        { label: "Phone", value: formData.phone },
+        { label: "Education", value: formData.education },
+        { label: "Program", value: formData.program },
+        { label: "Preferred University", value: formData.university },
+        { label: "IELTS/English Proficiency", value: formData.ielts },
+      ]
+    );
+
+    openWhatsAppChat(message);
+    setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
   return (
@@ -64,14 +84,23 @@ const CounsellingSection = () => {
         <div className="relative z-10 mx-auto flex h-full max-w-6xl items-center justify-center px-4 sm:px-6">
           <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm">
-              <CheckCircle className="h-5 w-5 text-green-400" fill="currentColor" />
-              <span className="text-sm font-medium text-white">100% Free Malaysia Consultation</span>
+              <CheckCircle
+                className="h-5 w-5 text-green-400"
+                fill="currentColor"
+              />
+              <span className="text-sm font-medium text-white">
+                100% Free Malaysia Consultation
+              </span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-              Free Malaysia Education <span className="text-transparent bg-clip-text bg-linear-to-r from-yellow-400 to-orange-400">Consultation</span>
+              Free Malaysia Education{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-yellow-400 to-orange-400">
+                Consultation
+              </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto">
-              Get expert guidance from our Malaysia education specialists and start your study journey today
+              Get expert guidance from our Malaysia education specialists and
+              start your study journey today
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-white/80">
               <div className="flex items-center gap-2">
@@ -106,22 +135,43 @@ const CounsellingSection = () => {
                   />
                 </span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-blue-900 mb-2">Start Your Malaysia Study Journey</h2>
-              <p className="text-gray-600 text-sm sm:text-base">Fill out the form below and get personalized Malaysia guidance within 24 hours</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-blue-900 mb-2">
+                Start Your Malaysia Study Journey
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Fill out the form below and get personalized Malaysia guidance
+                within 24 hours
+              </p>
             </div>
 
             {isSubmitted ? (
               <div className="text-center py-8 sm:py-12">
                 <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-100 mb-6">
-                  <CheckCircle className="h-8 w-8 sm:h-10 sm:w-10 text-green-500" fill="currentColor" />
+                  <CheckCircle
+                    className="h-8 w-8 sm:h-10 sm:w-10 text-green-500"
+                    fill="currentColor"
+                  />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-blue-900 mb-2">Thank You!</h3>
-                <p className="text-gray-600 mb-6 text-sm sm:text-base">Your Malaysia consultation request has been submitted. Our team will contact you within 24 hours.</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-blue-900 mb-2">
+                  Thank You!
+                </h3>
+                <p className="text-gray-600 mb-6 text-sm sm:text-base">
+                  Your Malaysia consultation request has been submitted. Our
+                  team will contact you within 24 hours.
+                </p>
                 <button
                   type="button"
                   onClick={() => {
                     setIsSubmitted(false);
-                    setFormData({ name: "", email: "", phone: "", education: "", program: "", university: "", ielts: "" });
+                    setFormData({
+                      name: "",
+                      email: "",
+                      phone: "",
+                      education: "",
+                      program: "",
+                      university: "",
+                      ielts: "",
+                    });
                   }}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-blue-600 to-red-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 cursor-pointer text-sm sm:text-base"
                 >
@@ -171,7 +221,7 @@ const CounsellingSection = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="+60 XXX XXXXXX"
+                      placeholder="+8801XXXXXXXXX or +6011XXXXXXXX"
                       className="w-full rounded-xl border-2 border-blue-100 px-4 py-3 text-sm transition-all duration-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 group-hover:border-blue-300 cursor-pointer"
                       required
                     />
@@ -191,8 +241,8 @@ const CounsellingSection = () => {
                       <option value="">Select your education level</option>
                       <option value="high-school">High School</option>
                       <option value="diploma">Diploma/Certificate</option>
-                      <option value="bachelors">Bachelor's Degree</option>
-                      <option value="masters">Master's Degree</option>
+                      <option value="bachelors">Bachelor&apos;s Degree</option>
+                      <option value="masters">Master&apos;s Degree</option>
                       <option value="phd">PhD/Doctorate</option>
                     </select>
                   </div>
@@ -201,7 +251,7 @@ const CounsellingSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div className="group">
                     <label className="block text-sm font-semibold text-blue-900 mb-2">
-                      Interested Program *
+                      Interested Programme *
                     </label>
                     <select
                       name="program"
@@ -210,12 +260,14 @@ const CounsellingSection = () => {
                       className="w-full rounded-xl border-2 border-blue-100 px-4 py-3 text-sm transition-all duration-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 group-hover:border-blue-300 cursor-pointer"
                       required
                     >
-                      <option value="">Select program type</option>
-                      <option value="undergraduate">Undergraduate Degree</option>
-                      <option value="postgraduate">Postgraduate Degree</option>
-                      <option value="phd">PhD/Research</option>
-                      <option value="diploma">Diploma/Certificate</option>
-                      <option value="language">English Language Course</option>
+                      <option value="">Select programme</option>
+                      <option value="foundation">Foundation</option>
+                      <option value="bachelor">Bachelor</option>
+                      <option value="masters">Master&apos;s</option>
+                      <option value="masters-research">
+                        Master&apos;s by Research
+                      </option>
+                      <option value="phd">PhD</option>
                     </select>
                   </div>
 
@@ -230,12 +282,19 @@ const CounsellingSection = () => {
                       className="w-full rounded-xl border-2 border-blue-100 px-4 py-3 text-sm transition-all duration-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 group-hover:border-blue-300 cursor-pointer"
                     >
                       <option value="">Select a university</option>
+                      <option value="any">
+                        Any Top Malaysian University 🇲🇾
+                      </option>
                       <option value="um">University of Malaya</option>
                       <option value="monash">Monash University Malaysia</option>
-                      <option value="taylors">Taylor's University</option>
+                      <option value="taylors">Taylor&apos;s University</option>
                       <option value="sunway">Sunway University</option>
-                      <option value="utm">Universiti Teknologi Malaysia</option>
-                      <option value="notsure">Not sure - Need guidance</option>
+                      <option value="utm">
+                        Universiti Teknologi Malaysia (UTM)
+                      </option>
+                      <option value="notsure">
+                        Not sure yet – Need guidance
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -281,7 +340,9 @@ const CounsellingSection = () => {
                   </button>
 
                   <p className="mt-4 text-center text-xs text-gray-500">
-                    By submitting this form, you agree to our terms and conditions. We respect your privacy and will never share your information.
+                    By submitting this form, you agree to our terms and
+                    conditions. We respect your privacy and will never share
+                    your information.
                   </p>
                 </div>
               </form>
@@ -293,33 +354,56 @@ const CounsellingSection = () => {
         <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
           <div className="text-center group cursor-pointer p-4 rounded-2xl bg-linear-to-b from-white to-blue-50 border border-blue-100 hover:shadow-lg transition-all">
             <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-100 group-hover:bg-green-200 transition-colors mb-3">
-              <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" fill="currentColor" />
+              <CheckCircle
+                className="h-5 w-5 sm:h-6 sm:w-6 text-green-600"
+                fill="currentColor"
+              />
             </div>
-            <h3 className="font-semibold text-blue-900 mb-2 text-sm sm:text-base">100% Free Service</h3>
-            <p className="text-xs sm:text-sm text-gray-600">No hidden charges for Malaysia consultation</p>
+            <h3 className="font-semibold text-blue-900 mb-2 text-sm sm:text-base">
+              100% Free Service
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-600">
+              No hidden charges for Malaysia consultation
+            </p>
           </div>
 
           <div className="text-center group cursor-pointer p-4 rounded-2xl bg-linear-to-b from-white to-red-50 border border-red-100 hover:shadow-lg transition-all">
             <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors mb-3">
               <Users className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
             </div>
-            <h3 className="font-semibold text-blue-900 mb-2 text-sm sm:text-base">Malaysia Specialists</h3>
-            <p className="text-xs sm:text-sm text-gray-600">10+ years experience in Malaysian education</p>
+            <h3 className="font-semibold text-blue-900 mb-2 text-sm sm:text-base">
+              Malaysia Specialists
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-600">
+              1+ years focused on Malaysian education
+            </p>
           </div>
 
           <div className="text-center group cursor-pointer p-4 rounded-2xl bg-linear-to-b from-white to-blue-50 border border-blue-100 hover:shadow-lg transition-all">
             <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-100 group-hover:bg-red-200 transition-colors mb-3">
-              <Award className="h-5 w-5 sm:h-6 sm:w-6 text-red-600" fill="currentColor" />
+              <Award
+                className="h-5 w-5 sm:h-6 sm:w-6 text-red-600"
+                fill="currentColor"
+              />
             </div>
-            <h3 className="font-semibold text-blue-900 mb-2 text-sm sm:text-base">98% Success Rate</h3>
-            <p className="text-xs sm:text-sm text-gray-600">Malaysian student visa success rate</p>
+            <h3 className="font-semibold text-blue-900 mb-2 text-sm sm:text-base">
+              98% Success Rate
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-600">
+              Malaysian student visa success rate
+            </p>
           </div>
         </div>
 
         {/* Quick Contact */}
         <div className="mt-8 sm:mt-12 rounded-2xl bg-linear-to-r from-blue-900 to-red-900 p-6 text-white text-center">
-          <h3 className="text-lg sm:text-xl font-bold mb-3">Need Immediate Help?</h3>
-          <p className="text-blue-200 mb-4 text-sm sm:text-base">Call our Malaysia education hotline for instant assistance</p>
+          <h3 className="text-lg sm:text-xl font-bold mb-3">
+            Need Immediate Help?
+          </h3>
+          <p className="text-blue-200 mb-4 text-sm sm:text-base">
+            Call or message our Malaysia education hotline for instant
+            assistance
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
@@ -327,7 +411,7 @@ const CounsellingSection = () => {
               </div>
               <div className="text-left">
                 <p className="text-xs text-blue-200">Malaysia Office</p>
-                <p className="font-bold">+60 3-1234 5678</p>
+                <p className="font-bold">+6011 2405 4294</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -335,8 +419,8 @@ const CounsellingSection = () => {
                 <span className="text-xl">💬</span>
               </div>
               <div className="text-left">
-                <p className="text-xs text-blue-200">WhatsApp Support</p>
-                <p className="font-bold">+60 1-2345 6789</p>
+                <p className="text-xs text-blue-200">WhatsApp / Email</p>
+                <p className="font-bold">studyconnect.bd@gmail.com</p>
               </div>
             </div>
           </div>
