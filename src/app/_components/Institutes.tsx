@@ -5,57 +5,57 @@ import Image from "next/image";
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-// Malaysian universities with valid image URLs
+// Malaysian partner institutions using the provided logos
 const logos = [
   {
-    src: "/logos/malaysia/um.png",
-    alt: "University of Malaya",
-    name: "University of Malaya",
+    src: "/logos/malaysia/apu.png",
+    alt: "Asia Pacific University (Taman Teknologi, Kuala Lumpur)",
+    name: "Asia Pacific University (Taman Teknologi, Kuala Lumpur)",
   },
   {
-    src: "/logos/malaysia/monash.jpg",
-    alt: "Monash University Malaysia",
-    name: "Monash University Malaysia",
+    src: "/logos/malaysia/inti.png",
+    alt: "INTI University (Nilai campus, Subangjaya Campus)",
+    name: "INTI University (Nilai campus, Subangjaya Campus)",
   },
   {
-    src: "/logos/malaysia/ukm.png",
-    alt: "Universiti Kebangsaan Malaysia",
-    name: "Universiti Kebangsaan Malaysia",
+    src: "/logos/malaysia/binary.png",
+    alt: "Bainary University (Puchong, Selangor)",
+    name: "Bainary University (Puchong, Selangor)",
   },
   {
-    src: "/logos/malaysia/upm.png",
-    alt: "Universiti Putra Malaysia",
-    name: "Universiti Putra Malaysia",
+    src: "/logos/malaysia/Genovasi.webp",
+    alt: "Genovasi University (Petaling Jaya, Selangor)",
+    name: "Genovasi University (Petaling Jaya, Selangor)",
   },
   {
-    src: "/logos/malaysia/usm.webp",
-    alt: "Universiti Sains Malaysia",
-    name: "Universiti Sains Malaysia",
+    src: "/logos/malaysia/asie.webp",
+    alt: "Asia e University (Subangjaya Selangor)",
+    name: "Asia e University (Subangjaya Selangor)",
+  },
+  {
+    src: "/logos/malaysia/alpha.webp",
+    alt: "Alpha University (Subangaya, Selangor)",
+    name: "Alpha University (Subangaya, Selangor)",
   },
   {
     src: "/logos/malaysia/laylors.jpg",
-    alt: "Taylor's University",
-    name: "Taylor's University",
+    alt: "Taylor's University (Petaling Jaya, Selangor)",
+    name: "Taylor's University (Petaling Jaya, Selangor)",
   },
   {
-    src: "/logos/malaysia/utm.webp",
-    alt: "Universiti Teknologi Malaysia",
-    name: "Universiti Teknologi Malaysia",
+    src: "/logos/malaysia/kings.png",
+    alt: "Kings University (Chow Kit, Kuala Lumpur)",
+    name: "Kings University (Chow Kit, Kuala Lumpur)",
   },
   {
-    src: "/logos/malaysia/sunway.jpeg",
-    alt: "Sunway University",
-    name: "Sunway University",
+    src: "/logos/malaysia/lincon.webp",
+    alt: "Lincoln University (Kota Bharu, Kelantan)",
+    name: "Lincoln University (Kota Bharu, Kelantan)",
   },
   {
-    src: "/logos/malaysia/nottingham.jpg",
-    alt: "University of Nottingham Malaysia",
-    name: "University of Nottingham Malaysia",
-  },
-  {
-    src: "/logos/malaysia/apu.png",
-    alt: "Asia Pacific University",
-    name: "Asia Pacific University",
+    src: "/logos/malaysia/city.webp",
+    alt: "City University (Petaling Jaya, Selangor)",
+    name: "City University (Petaling Jaya, Selangor)",
   },
 ];
 
