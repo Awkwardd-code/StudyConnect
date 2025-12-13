@@ -50,21 +50,21 @@ const Welcome = () => {
           </div>
 
           <h2 className="mt-2 text-4xl font-extrabold text-[#0a0f2c]">
-            Study Connect – Malaysia Education Support
+            Study Connect - Malaysia Education Support
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-[#2d2f3b]">
-            Study Connect is a Malaysia- and Bangladesh-based student consultancy,
-            visa processing, and travel support firm. As a growing, beginner-friendly
-            company, we focus especially on helping Bangladeshi students start their
-            study journey in Malaysia with honest, step-by-step guidance.
+            Study Connect is a Malaysia-based student consultancy, visa processing,
+            and travel support firm with a Kuala Lumpur office paired with a responsive
+            Bangladesh hub. We focus on guiding Bangladeshi students into Malaysian
+            universities with honest, step-by-step support.
           </p>
 
           <p className="mt-3 text-base leading-relaxed text-[#414457]">
-            We assist with university admission, EMGS and visa processing, travel and
-            accommodation arrangements, and post-arrival support in Malaysia.
-            Our goal is to make the entire process simple, transparent, and student-focused
-            so that you and your family can feel confident at every stage.
+            Our Malaysia-based advisors support every step, from university admission,
+            EMGS and visa processing to travel, accommodations, and post-arrival care.
+            We keep the process simple, transparent, and student-focused so that you
+            and your family can feel confident at every stage.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-blue-100 pt-6">

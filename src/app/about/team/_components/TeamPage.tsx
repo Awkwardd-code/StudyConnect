@@ -76,11 +76,11 @@ const Team = () => {
             </div>
           </div>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            A dedicated Malaysia-focused team guiding Bangladeshi students with{" "}
+            A Malaysia-based consultancy headquartered in Kuala Lumpur, guiding Bangladeshi students with{" "}
             <span className="font-semibold text-blue-700">
               admission, visa, and post-arrival support
-            </span>
-            — step by step.
+            </span>{" "}
+            step by step. Our Malaysia-based counselors stay synced with the Bangladesh desk so families always have a responsive contact.
           </p>
           <div className="mt-4 h-1 w-20 rounded-full bg-linear-to-r from-blue-600 to-red-600 mx-auto" />
         </div>
@@ -173,17 +173,18 @@ const Team = () => {
           <div>
             <p className="text-sm sm:text-base font-semibold flex items-center gap-2">
               <Globe2 className="h-4 w-4 sm:h-5 sm:w-5" />
-              Study Connect – Malaysia-focused education team for Bangladeshi students
+              Study Connect - Malaysia-based education consultancy for Bangladeshi students
             </p>
             <p className="mt-1 text-xs sm:text-sm text-blue-100 max-w-xl">
-              Our team works between{" "}
-              <span className="font-semibold">Bangladesh & Malaysia</span> to
-              support your journey — from university selection and admission to
-              EMGS, visa, and post-arrival support.
+              Our Malaysia-based consultants in Kuala Lumpur coordinate with the Bangladesh desk to
+              support your journey between{" "}
+              <span className="font-semibold">Bangladesh & Malaysia</span>, from
+              university selection and admission to EMGS, visa, and post-arrival
+              support.
             </p>
           </div>
           <button className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-white/10 px-4 sm:px-6 py-2 text-xs sm:text-sm font-semibold text-white border border-white/30 hover:bg-white hover:text-blue-900 transition-all">
-            Meet us for a free counselling
+            Meet our Malaysia team for a free counselling
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-blue-800 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
               <ArrowUpRight className="h-4 w-4" />
             </span>
