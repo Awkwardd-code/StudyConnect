@@ -12,7 +12,6 @@ import {
 
 type TeamMember = {
   name: string;
-  role: string;
   location: "Malaysia" | "Bangladesh";
   bio: string;
   focus: string;
@@ -22,7 +21,6 @@ type TeamMember = {
 const teamMembers: TeamMember[] = [
   {
     name: "MD. IMRAN KHAN APU",
-    role: "CEO & Team Co-ordinator",
     location: "Bangladesh",
     bio: "Leads the Study Connect leadership team and aligns Malaysia and Bangladesh operations around student success.",
     focus: "Leadership strategy, stakeholder alignment, service excellence",
@@ -30,7 +28,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "TANZIN AARNI",
-    role: "Managing Director & Advisor",
     location: "Bangladesh",
     bio: "Advises on partnerships and regional counsel, keeping our Bangladesh floor responsive to student needs.",
     focus: "Program advising, mentor coaching, regional alignment",
@@ -38,7 +35,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "MD. SOJOL BISWAS",
-    role: "Managing Director & Business Development Officer",
     location: "Bangladesh",
     bio: "Drives business development and university liaisons so documentation and admissions run smoothly.",
     focus: "Business partnerships, documentation accuracy, admissions outreach",
@@ -46,7 +42,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "NELOVE SHEIKH",
-    role: "Managing Director & Business Development Officer",
     location: "Bangladesh",
     bio: "Coordinates admissions outreach and keeps Study Connect connected with every campus update.",
     focus: "Admissions outreach, client relations, international updates",
@@ -134,9 +129,6 @@ const Team = () => {
                   <h3 className="text-sm sm:text-base font-bold text-blue-900">
                     {member.name}
                   </h3>
-                  <p className="text-[11px] sm:text-xs font-semibold text-blue-600 mt-0.5">
-                    {member.role}
-                  </p>
                   <p className="mt-1 flex items-center gap-1 text-[11px] sm:text-xs text-gray-500">
                     <MapPin className="h-3 w-3" />
                     {member.location === "Malaysia"

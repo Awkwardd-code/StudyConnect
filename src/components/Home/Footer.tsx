@@ -126,7 +126,7 @@ const Footer = () => {
                   {/* Logo Box */}
                   <div className="h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-sm p-1.5">
                     <img
-                      src="/logos/malaysia/logo.png"
+                      src="/logos/malaysia/logo.jpg"
                       alt="Study Connect Logo"
                       className="h-full w-full object-contain"
                     />

@@ -169,7 +169,7 @@ const BrandGlyph = ({ size = "lg" }: { size?: "sm" | "lg" }) => {
         className={`${inner} flex items-center justify-center rounded-xl bg-white/95 shadow-inner p-2`}
       >
         <img
-          src="/logos/malaysia/logo.png"
+          src="/logos/malaysia/logo.jpg"
           alt="Brand Logo"
           className="h-9 w-9 sm:h-10 sm:w-10 object-contain"
         />
