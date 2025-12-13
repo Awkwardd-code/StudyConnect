@@ -7,60 +7,74 @@ import { useState } from "react";
 
 const stories = [
   {
-    title: "University of Malaya",
+    title: "Asia Pacific University (Taman Teknologi, Kuala Lumpur)",
     student: "Ahmed from Bangladesh",
     image:
-      "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=500&q=80",
     program: "Bachelor of Computer Science",
   },
   {
-    title: "Monash University Malaysia",
+    title: "INTI University (Nilai campus, Subangjaya Campus)",
     student: "Sara from Pakistan",
     image:
-      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500&q=80",
     program: "Master of Business",
   },
   {
-    title: "Taylor's University",
+    title: "Bainary University (Puchong, Selangor)",
     student: "Rohan from India",
     image:
-      "https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
     program: "Bachelor of Engineering",
   },
   {
-    title: "Sunway University",
+    title: "Genovasi University (Petaling Jaya, Selangor)",
     student: "Chen from China",
     image:
-      "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=500&q=80",
     program: "PhD in Biotechnology",
   },
   {
-    title: "UTM Johor",
+    title: "Asia e University (Subangjaya Selangor)",
     student: "Fatima from Egypt",
     image:
-      "https://images.unsplash.com/photo-1541336032412-2048a678540d?auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=500&q=80",
     program: "Master of Civil Engineering",
   },
   {
-    title: "Asia Pacific University",
+    title: "Alpha University (Subangaya, Selangor)",
     student: "David from Nigeria",
     image:
-      "https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=500&q=80",
     program: "Bachelor of IT",
   },
   {
-    title: "INTI University",
-    student: "Maria from Philippines",
+    title: "Taylor's University (Petaling Jaya, Selangor)",
+    student: "Maria from the Philippines",
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1512427691650-1d4c0db3decf?auto=format&fit=crop&w=500&q=80",
     program: "Hospitality Management",
   },
   {
-    title: "University of Nottingham Malaysia",
+    title: "Kings University (Chow Kit, Kuala Lumpur)",
     student: "James from Sri Lanka",
     image:
-      "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=80",
     program: "Law Degree",
+  },
+  {
+    title: "Lincoln University (Kota Bharu, Kelantan)",
+    student: "Nadia from Indonesia",
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=500&q=80",
+    program: "Bachelor of Education",
+  },
+  {
+    title: "City University (Petaling Jaya, Selangor)",
+    student: "Omar from Maldives",
+    image:
+      "https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=500&q=80",
+    program: "Master of Digital Media",
   },
 ];
 
