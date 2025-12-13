@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = "+60 1-2345 6789";
+export const WHATSAPP_NUMBER = "+601124054294";
 export const WHATSAPP_MESSAGE =
   "Hello Study Connect Malaysia team! I need help with studying in Malaysia. Can you please guide me?";
 

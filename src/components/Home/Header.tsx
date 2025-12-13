@@ -114,9 +114,9 @@ const aboutItems: AboutItem[] = [
 
 const socialLinks: SocialLink[] = [
   { label: "Facebook", href: "https://facebook.com/studyconnect-malaysia", icon: Facebook },
-  { label: "Instagram", href: "https://instagram.com/studyconnect_malaysia", icon: Instagram },
-  { label: "YouTube", href: "https://youtube.com/@studyconnect-malaysia", icon: Youtube },
-  { label: "LinkedIn", href: "https://linkedin.com/company/studyconnect-malaysia", icon: Linkedin },
+  { label: "Instagram", href: "#", icon: Instagram },
+  { label: "YouTube", href: "https://youtube.com/@studyconnect-f6w?si=2GLpcgec14f1PNUo", icon: Youtube },
+  { label: "LinkedIn", href: "#", icon: Linkedin },
 ];
 
 const navLinks: NavLink[] = [
@@ -130,9 +130,9 @@ const navLinks: NavLink[] = [
 ];
 
 const contactInfo = [
-  { icon: Phone, label: "+60 3-1234 5678", href: "tel:+60312345678" },
-  { icon: Mail, label: "malaysia@studyconnect.com", href: "mailto:malaysia@studyconnect.com" },
-  { icon: MapPin, label: "Kuala Lumpur, Malaysia", href: "#" },
+  { icon: Phone, label: "+601124054294", href: "tel:+601124054294" },
+  { icon: Mail, label: "studyconnect.bd@gmail.com", href: "mailto:studyconnect.bd@gmail.com" },
+  { icon: MapPin, label: " Residensi PV21. No. 06, Jalan Usahawan 2, off Jalan Genting Klang.", href: "#" }
 ];
 
 const DropdownShell = ({
@@ -184,22 +184,24 @@ const BrandGlyph = ({ size = "lg" }: { size?: "sm" | "lg" }) => {
 };
 
 const BrandLockup = () => (
-  <Link href="/" className="group flex items-center gap-3">
+  <Link href="/" className="group flex items-center gap-3 min-w-0">
     <BrandGlyph />
-    <div className="leading-tight transition-transform group-hover:scale-[1.02]">
+    <div className="leading-tight transition-transform group-hover:scale-[1.02] min-w-0">
       <div className="flex items-baseline gap-2">
         {/* 🔁 STC → Study Connect */}
-        <p className="text-2xl font-bold tracking-tight text-gray-900">
+        <p className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">
           Study Connect
         </p>
         <span className="rounded-full bg-linear-to-r from-blue-500 to-red-500 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
           Malaysia
         </span>
       </div>
-      <p className="bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-[11px] font-semibold uppercase tracking-[0.3em] text-transparent">
+      <p className="bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-[10px] font-semibold uppercase tracking-[0.3em] text-transparent sm:text-[11px]">
         Study in Malaysia
       </p>
-      <p className="text-xs text-gray-500">Malaysian Education Specialists</p>
+      <p className="text-[10px] text-gray-500 sm:text-xs">
+        Malaysian Education Specialists
+      </p>
     </div>
   </Link>
 );
@@ -636,8 +638,10 @@ const Header = () => {
           onMouseEnter={clearCloseTimeout}
           onMouseLeave={scheduleClose}
         >
-          <div className="flex items-center justify-between">
-            <BrandLockup />
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-1 min-w-0">
+              <BrandLockup />
+            </div>
 
             {/* Desktop Navigation */}
             <nav
@@ -709,7 +713,7 @@ const Header = () => {
               )}
             </nav>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 shrink-0">
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleSidebar}
