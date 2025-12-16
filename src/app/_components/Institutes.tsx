@@ -8,7 +8,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 // Malaysian partner institutions using the provided logos
 const logos = [
   {
-    src: "/logos/malaysia/apu.png",
+    src: "/logos/malaysia/apu.jpg",
     alt: "Asia Pacific University (Taman Teknologi, Kuala Lumpur)",
     name: "Asia Pacific University (Taman Teknologi, Kuala Lumpur)",
   },
@@ -23,7 +23,7 @@ const logos = [
     name: "Bainary University (Puchong, Selangor)",
   },
   {
-    src: "/logos/malaysia/Genovasi.webp",
+    src: "/logos/malaysia/Genovasi.jpg",
     alt: "Genovasi University (Petaling Jaya, Selangor)",
     name: "Genovasi University (Petaling Jaya, Selangor)",
   },
@@ -33,7 +33,7 @@ const logos = [
     name: "Asia e University (Subangjaya Selangor)",
   },
   {
-    src: "/logos/malaysia/alpha.webp",
+    src: "/logos/malaysia/alpha.jpg",
     alt: "Alpha University (Subangaya, Selangor)",
     name: "Alpha University (Subangaya, Selangor)",
   },
@@ -48,12 +48,12 @@ const logos = [
     name: "Kings University (Chow Kit, Kuala Lumpur)",
   },
   {
-    src: "/logos/malaysia/lincon.webp",
+    src: "/logos/malaysia/lincon.jpg",
     alt: "Lincoln University (Kota Bharu, Kelantan)",
     name: "Lincoln University (Kota Bharu, Kelantan)",
   },
   {
-    src: "/logos/malaysia/city.webp",
+    src: "/logos/malaysia/city.jpg",
     alt: "City University (Petaling Jaya, Selangor)",
     name: "City University (Petaling Jaya, Selangor)",
   },

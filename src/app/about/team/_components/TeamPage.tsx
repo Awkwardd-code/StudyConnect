@@ -21,14 +21,14 @@ type TeamMember = {
 const teamMembers: TeamMember[] = [
   {
     name: "MD. IMRAN KHAN APU",
-    location: "Bangladesh",
+    location: "Malaysia",
     bio: "Leads the Study Connect leadership team and aligns Malaysia and Bangladesh operations around student success.",
     focus: "Leadership strategy, stakeholder alignment, service excellence",
     image: "/images/IMRAN.jpg",
   },
   {
     name: "TANZIN AARNI",
-    location: "Bangladesh",
+    location: "Malaysia",
     bio: "Advises on partnerships and regional counsel, keeping our Bangladesh floor responsive to student needs.",
     focus: "Program advising, mentor coaching, regional alignment",
     image: "/images/TANZIN.jpg",

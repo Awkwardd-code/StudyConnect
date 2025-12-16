@@ -17,6 +17,19 @@ const programs = [
     ],
   },
   {
+    level: "Diploma",
+    tag: "After SSC / O-Levels",
+    icon: GraduationCap,
+    highlight:
+      "A practical, career-ready credential that bridges secondary school and Bachelor’s top-up pathways in Malaysia.",
+    points: [
+      "Duration: 1.5–2 years depending on the subject area",
+      "Balanced mix of classroom learning, workshops, and labs",
+      "Recognized by employers and universities for articulation",
+      "Paths into Diploma-to-Bachelor top-up tracks or direct employment",
+    ],
+  },
+  {
     level: "Bachelor’s Degree",
     tag: "After HSC / A-Levels / Foundation",
     icon: GraduationCap,

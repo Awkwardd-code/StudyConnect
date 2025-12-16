@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -113,7 +114,7 @@ const aboutItems: AboutItem[] = [
 ];
 
 const socialLinks: SocialLink[] = [
-  { label: "Facebook", href: "https://facebook.com/studyconnect-malaysia", icon: Facebook },
+  { label: "Facebook", href: "https://www.facebook.com/STUDYconnect.edu", icon: Facebook },
   { label: "Instagram", href: "#", icon: Instagram },
   { label: "YouTube", href: "https://youtube.com/@studyconnect-f6w?si=2GLpcgec14f1PNUo", icon: Youtube },
   { label: "LinkedIn", href: "#", icon: Linkedin },
@@ -200,7 +201,7 @@ const BrandLockup = () => (
         Study in Malaysia
       </p>
       <p className="text-[10px] text-gray-500 sm:text-xs">
-        Malaysian Education Specialists
+        Malaysian education consultants for beginners
       </p>
     </div>
   </Link>
@@ -306,7 +307,7 @@ const renderDropdown = (key: DropdownKey) => {
                     About Study Connect Malaysia
                   </h3>
                   <p className="text-xs text-gray-500">
-                    Your trusted Malaysia education partner
+                    Your trusted Malaysia education partner for first-time students
                   </p>
                 </div>
               </div>
@@ -340,12 +341,12 @@ const renderDropdown = (key: DropdownKey) => {
                     Study Malaysia Experts
                   </p>
                   <p className="mt-1 text-xs text-gray-300">
-                    1+ years experience in Malaysian education
+                    1+ years helping first-time students start their Malaysia journey
                   </p>
                 </div>
                 <div className="mb-4 rounded-xl bg-white/10 p-3 backdrop-blur-sm">
                   <p className="text-center text-xs font-medium text-white">
-                    0,000+ students placed in Malaysia
+                    "Study Connect made my Malaysia education journey seamless and stress-free. Their expert guidance and support were invaluable!" - A Happy Student
                   </p>
                 </div>
                 <div className="flex justify-center gap-2">
